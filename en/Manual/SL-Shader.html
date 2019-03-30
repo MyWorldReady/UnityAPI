@@ -92,7 +92,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>All <a href="class-Shader.html">Shaders</a> files in Unity are written in a declarative language called “ShaderLab”. In the file, a nested-braces
+<p>All <a href="class-Shader.html">Shaders</a> files in Unity are written in a declarative language called “ShaderLab”. In the file, a nested-braces(括号)
 syntax declares various things that describe the shader – for example which shader properties should be shown in material inspector;
 what kind of hardware fallbacks to do; what kind of blending modes to use etc.; and actual “shader code” is written in
 <code>CGPROGRAM</code> snippets inside the same shader file (see <a href="SL-SurfaceShaders.html">surface shaders</a> and <a href="SL-ShaderPrograms.html">vertex and fragment shaders</a>).</p>
@@ -101,11 +101,12 @@ what kind of hardware fallbacks to do; what kind of blending modes to use etc.; 
 HLSL/Cg shading language, see <a href="SL-ShaderPrograms.html">their documentation pages</a>.</p>
 
 <p>
-<strong>Shader</strong> is the root command of a shader file. Each file must define one (and only one) Shader. It specifies how any objects whose material uses this shader are rendered.</p>
+  <span id="M">
+<strong>Shader</strong> is the root command of a shader file. Each file must define one (and only one) Shader. It specifies how any objects whose material uses this shader are rendered.</span></p>
 
 <h2>Syntax</h2>
 
-<pre><code>Shader &quot;name&quot; { [Properties] Subshaders [Fallback] [CustomEditor] }
+<pre><code id="M">Shader &quot;name&quot; { [Properties] Subshaders [Fallback] [CustomEditor] }
 </code></pre>
 
 <p>Defines a shader. It will appear in the material inspector listed under <strong>name</strong>. Shaders optionally can define a list of <strong>properties</strong> that show up in material inspector. After this comes a list of SubShaders, and optionally a fallback and/or a custom editor declaration.</p>
@@ -114,13 +115,13 @@ HLSL/Cg shading language, see <a href="SL-ShaderPrograms.html">their documentati
 
 <h3>Properties</h3>
 
-<p>Shaders can have a list of <a href="SL-Properties.html">properties</a>. Any properties declared in a shader are shown in the <a href="class-Material.html">material inspector</a> inside Unity. Typical properties are the object color, textures, or just arbitrary values to be used by the shader.</p>
+<p id="M">Shaders can have a list of <a href="SL-Properties.html">properties</a>. Any properties declared in a shader are shown in the <a href="class-Material.html">material inspector</a> inside Unity. Typical properties are the object color, textures, or just arbitrary values to be used by the shader.</p>
 
 <h3>SubShaders &amp; Fallback</h3>
 
-<p>Each shader is comprised of a list of <a href="SL-SubShader.html">sub-shaders</a>. You must have at least one. When loading a shader, Unity will go through the list of subshaders, and pick the first one that is supported by the end user’s machine. If no subshaders are supported, Unity will try to use <a href="SL-Fallback.html">fallback shader</a>.</p>
+<p  id="M">Each shader is comprised of a list of <a href="SL-SubShader.html">sub-shaders</a>. You must have at least one. When loading a shader, Unity will go through the list of subshaders, and pick the first one that is supported by the end user’s machine. If no subshaders are supported, Unity will try to use <a href="SL-Fallback.html">fallback shader</a>.</p>
 
-<p>Different graphic cards have different capabilities. This raises an eternal issue for game developers; you want your game to look great on the latest hardware, but don’t want it to be available only to those 3% of the population. This is where subshaders come in. Create one subshader that has all the fancy graphic effects you can dream of, then add more subshaders for older cards. These subshaders may implement the effect you want in a slower way, or they may choose not to implement some details.</p>
+<p  id="M"> Different graphic cards have different capabilities. This raises an eternal issue for game developers; you want your game to look great on the latest hardware, but don’t want it to be available only to those 3% of the population. This is where subshaders come in. Create one subshader that has all the fancy graphic effects you can dream of, then add more subshaders for older cards. These subshaders may implement the effect you want in a slower way, or they may choose not to implement some details.</p>
 
 <p>Shader “level of detail” (LOD) and “shader replacement” are two techniques that also build upon subshaders, see <a href="SL-ShaderLOD.html">Shader LOD</a> and <a href="SL-ShaderReplacement.html">Shader Replacemement</a> for details.</p>
 
@@ -133,7 +134,7 @@ Shader &quot;Simple colored lighting&quot;
 {
     // a single color property
     Properties {
-        _Color (&quot;Main Color&quot;, Color) = (1,.5,.5,1)
+        <span id="M"> _Color (&quot;Main Color&quot;, Color) = (1,.5,.5,1)</span>
     }
     // define one subshader
     SubShader

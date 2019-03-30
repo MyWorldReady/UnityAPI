@@ -107,7 +107,7 @@ The Properties block in the <a href="SL-Shader.html">shader file</a> defines the
 
 <h4>Numbers and Sliders</h4>
 
-<pre><code>name (&quot;display name&quot;, Range (min, max)) = number
+<pre><code id="M">name (&quot;display name&quot;, Range (min, max)) = number
 name (&quot;display name&quot;, Float) = number
 name (&quot;display name&quot;, Int) = number
 </code></pre>
@@ -117,7 +117,7 @@ as a slider between <em>min</em> and <em>max</em> ranges.</p>
 
 <h4>Colors and Vectors</h4>
 
-<pre><code>name (&quot;display name&quot;, Color) = (number,number,number,number)
+<pre><code id="M">name (&quot;display name&quot;, Color) = (number,number,number,number)
 name (&quot;display name&quot;, Vector) = (number,number,number,number)
 </code></pre>
 
@@ -126,7 +126,7 @@ Color properties have a color picker shown for them, and are adjusted as needed 
 
 <h4>Textures</h4>
 
-<pre><code>name (&quot;display name&quot;, 2D) = &quot;defaulttexture&quot; {}
+<pre><code id="M">name (&quot;display name&quot;, 2D) = &quot;defaulttexture&quot; {}
 name (&quot;display name&quot;, Cube) = &quot;defaulttexture&quot; {}
 name (&quot;display name&quot;, 3D) = &quot;defaulttexture&quot; {}
 </code></pre>
@@ -135,13 +135,13 @@ name (&quot;display name&quot;, 3D) = &quot;defaulttexture&quot; {}
 
 <h2>Details</h2>
 
-<p>Each property inside the shader is referenced by <strong>name</strong> (in Unity, it’s common to start shader property names with underscore). The property will show up in material inspector as <strong>display name</strong>. For each property a default value is given after equals sign:</p>
+<p id="M">Each property inside the shader is referenced by <strong>name</strong> (in Unity, it’s common to start shader property names with underscore). The property will show up in material inspector as <strong>display name</strong>. For each property a default value is given after equals sign:</p>
 
 <ul>
-<li>For <em>Range</em> and <em>Float</em> properties it’s just a single number, for example “13.37”.</li>
-<li>For <em>Color</em> and <em>Vector</em> properties it’s four numbers in parentheses, for example “(1,0.5,0.2,1)”.</li>
-<li>For 2D Textures, the default value is either an empty string, or one of the built-in default Textures: “white” (RGBA: 1,1,1,1), “black” (RGBA: 0,0,0,0), “gray” (RGBA: 0.5,0.5,0.5,0.5), “bump” (RGBA: 0.5,0.5,1,0.5) or “red” (RGBA: 1,0,0,0).</li>
-<li>For non–2D Textures (Cube, 3D, 2DArray) the default value is an empty string. When a Material does not have a Cubemap/3D/Array Texture assigned, a gray one (RGBA: 0.5,0.5,0.5,0.5) is used.</li>
+<li  id="M">For <em>Range</em> and <em>Float</em> properties it’s just a single number, for example “13.37”.</li>
+<li  id="M">For <em>Color</em> and <em>Vector</em> properties it’s four numbers in parentheses, for example “(1,0.5,0.2,1)”.</li>
+<li id="M">For 2D Textures, the default value is either an empty string, or one of the built-in default Textures: “white” (RGBA: 1,1,1,1), “black” (RGBA: 0,0,0,0), “gray” (RGBA: 0.5,0.5,0.5,0.5), “bump” (RGBA: 0.5,0.5,1,0.5) or “red” (RGBA: 1,0,0,0).</li>
+<li id="M">For non–2D Textures (Cube, 3D, 2DArray) the default value is an empty string. When a Material does not have a Cubemap/3D/Array Texture assigned, a gray one (RGBA: 0.5,0.5,0.5,0.5) is used.</li>
 </ul>
 
 <p>Later on in the shader’s fixed function parts, property values can be accessed using property name in
@@ -161,17 +161,17 @@ either attributes recognized by Unity, or they can indicate your own
 rendered in the <a href="class-Material.html">material inspector</a>. Attributes recognized by Unity:</p>
 
 <ul>
-<li>
+<li id="M">
 <code>[HideInInspector]</code> - does not show the property value in the material inspector.</li>
-<li>
+<li id="M">
 <code>[NoScaleOffset]</code> - material inspector will not show texture tiling/offset fields for texture properties with this attribute.</li>
-<li>
+<li id="M">
 <code>[Normal]</code> - indicates that a texture property expects a normal-map.</li>
-<li>
+<li id="M">
 <code>[HDR]</code> - indicates that a texture property expects a high-dynamic range (HDR) texture.</li>
-<li>
+<li id="M">
 <code>[Gamma]</code> - indicates that a float/vector property is specified as sRGB value in the UI (just like colors are), and possibly needs conversion according to color space used. See <a href="SL-PropertiesInPrograms.html">Properties in Shader Programs</a>.</li>
-<li>
+<li id="M">
 <code>[PerRendererData]</code> - indicates that a texture property will be coming from per-renderer data
  in the form of a <a href="../ScriptReference/MaterialPropertyBlock.html">MaterialPropertyBlock</a>. Material inspector changes the texture
  slot UI for these properties.</li>
@@ -182,6 +182,7 @@ rendered in the <a href="class-Material.html">material inspector</a>. Attributes
 <pre><code>// properties for a water shader
 Properties
 {
+    <span id="M">
     _WaveScale (&quot;Wave scale&quot;, Range (0.02,0.15)) = 0.07 // sliders
     _ReflDistort (&quot;Reflection distort&quot;, Range (0,1.5)) = 0.5
     _RefrDistort (&quot;Refraction distort&quot;, Range (0,1.5)) = 0.4
@@ -189,7 +190,7 @@ Properties
     _ReflectionTex (&quot;Environment Reflection&quot;, 2D) = &quot;&quot; {} // textures
     _RefractionTex (&quot;Environment Refraction&quot;, 2D) = &quot;&quot; {}
     _Fresnel (&quot;Fresnel (A) &quot;, 2D) = &quot;&quot; {}
-    _BumpMap (&quot;Bumpmap (RGB) &quot;, 2D) = &quot;&quot; {}
+    _BumpMap (&quot;Bumpmap (RGB) &quot;, 2D) = &quot;&quot; {}</span>
 }
 </code></pre>
 
