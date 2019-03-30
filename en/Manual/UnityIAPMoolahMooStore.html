@@ -1,0 +1,661 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: CloudMoolah store </title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1524742681"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1524742681"></script><script type="text/javascript" src="docdata/toc.js?ts=1524742681"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1524742681"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1524742681">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.6</b> (<a href="https://docs.unity3d.com/2017.1/Documentation/Manual">switch to 2017.1b</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UnityIAPMoolahMooStore.html">English</a></li>
+<li><a href="/ja/current/Manual/UnityIAPMoolahMooStore.html">日本語</a></li>
+<li><a href="/es/current/Manual/UnityIAPMoolahMooStore.html">Español</a></li>
+<li><a href="/kr/current/Manual/UnityIAPMoolahMooStore.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UnityIAPMoolahMooStore.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual (5.6)</a></li>
+<li><a href="UnityServices.html">Unity Services</a></li>
+<li><a href="UnityIAP.html">Unity IAP</a></li>
+<li>Store Guides</li>
+<li>CloudMoolah store </li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPTizen.html"></a></span><div class="tip"> Tizen Store</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPImplementingAStore.html"></a></span><div class="tip">Implementing a Store</div>
+</div>
+</div></div>
+<div class="otherversionswrapper" onmouseover="setOtherVersionsDisplay(true)" onmouseout="setOtherVersionsDisplay(false)">
+<a>Other Versions</a><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">Cannot access other versions offline!</div>
+</div>
+<h1>CloudMoolah store</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Sample implementation</h2>
+
+<p>See the sample <code>IAPDemo</code> scene and script in the default Unity IAP installation.</p>
+
+<h2>Initialization</h2>
+
+<p>Initialization requires first configuring the <code>appKey</code> and <code>hashKey</code> using the <code>IMoolahConfiguration</code> interface.</p>
+
+<h2>Configuration API</h2>
+
+<p>Unity IAP supports pre-initialization store-specific API through a configuration mechanism. Acquire the <code>IMoolahConfiguration</code> interface instance for CloudMoolah through the <code>ConfigurationBuilder.Configure&lt;IMoolahConfiguration&gt;()</code> in <a href="../ScriptReference/Purchasing.ConfigurationBuilder.Configure.html">Purchasing.ConfigurationBuilder.Configure</a> Scripting API.</p>
+
+<h3>Secret appKey</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>string IMoolahConfiguration.appKey
+</code></pre>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Required to initialize.</p></li>
+<li><p>Uniquely identifies the game.</p></li>
+<li><p>Apply for this on the Cloud Moolah Developer Portal.</p></li>
+<li><p>Set before Initialize is called.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+
+builder.Configure&lt;IMoolahConfiguration&gt;().appKey = &quot;54ad14a8a350e0a71d4764ae9825fc0e&quot;;
+
+</code></pre>
+
+<h3>Secret hashKey</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>string IMoolahConfiguration.hashKey
+</code></pre>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Required to initialize.</p></li>
+<li><p>Apply for this on the Cloud Moolah Developer Portal.</p></li>
+<li><p>Uniquely identifies the game, and is defined by developer.</p></li>
+<li><p>Set before Initialize is called.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+
+builder.Configure&lt;IMoolahConfiguration&gt;().hashKey = &quot;asdfasdfadsfsadcok-test-a-d&quot;;
+
+</code></pre>
+
+<h2>Extensions API</h2>
+
+<p>Unity IAP supports additional store-specific API through an extension mechanism. Acquire the <code>IMoolahExtension</code> interface instance for CloudMoolah through the <a href="https://docs.unity3d.com/ScriptReference/Purchasing.IExtensionProvider.html">IExtensionProvider</a> interface return by the <a href="https://docs.unity3d.com/ScriptReference/Purchasing.IStoreListener.OnInitialized.html">IStoreListener.OnInitialized</a> API, for example <a href="https://docs.unity3d.com/Manual/UnityIAPInitialization.html">Unity IAP Initialization</a> and <a href="https://docs.unity3d.com/Manual/UnityIAPRestoringTransactions.html">Restoring Transactions</a>.</p>
+
+<h3>Purchasing prerequisites: registration and login</h3>
+
+<p>CloudMoolah requires establishing per-user identification to create and access a user’s digital wallet. The CloudMoolah wallet collects real currency from pre-paid cards and SMS payments. Currency in the wallet is then used during the payment process. CloudMoolah requires user identification through registration and login in order to access the user’s wallet. </p>
+
+<p>This identification process can be performed invisibly to the user by an application that registers and logs in using computer-generated credentials or by sharing previously created credentials from a third-party identity service. </p>
+
+<p>For example, standalone or offline games may not have access to an identity service from a game developer or publisher. In this case generating credentials may be suitable. One could register using the result of Unity’s <a href="https://docs.unity3d.com/ScriptReference/SystemInfo-deviceUniqueIdentifier.html">SystemInfo.deviceUniqueIdentifier</a> API, supplying this as the user identifying “password” (<strong>Note:</strong> using this API automatically adds the <code>android.permission.READ_PHONE_STATE</code> to an Android application’s manifest).</p>
+
+<p>Another example is online games, which may have an online identity service available to them through their game server. In this case, copying a user-identifying credential as the registration password is appropriate.</p>
+
+<p>
+<strong>Note:</strong> The registration password must remain constant over the lifetime of the user account, serving as a permanent access token for this user’s wallet.</p>
+
+<p>Purchasing requires a successful login, which requires a user to register in turn.</p>
+
+<p>This Registration API is lighter in that a user only needs to provide a single password. This creates the digital wallet. Registration will also generate a “username” which is passed back to the client and must be used for the next step - login.</p>
+
+<p>Login must be performed once per session. Logging in requires the generated username and user-identifying password. After the user is logged in, they may add money to the wallet through the Moo Store’s supported payment providers, and purchases can be attempted.</p>
+
+<p>For users to permanently bind a wallet to an email address, they may supply additional identifying credentials such as a phone number to the Cloud Moolah web service during the purchase process on their Android device.</p>
+
+<h4>Register for a digital wallet</h4>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.FastRegister(string CMpassword, Action&lt;string&gt; registerSuccessed, Action&lt;FastRegisterError, string&gt; registerFailed)
+
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li><p>
+<code>CMpassword</code>: User-defined password for signing up with the Cloud Moolah user system.</p></li>
+<li><p>
+<code>registerSuccessed</code>: Passes (string cmUserName) on successful fast registration.</p></li>
+<li><p>
+<code>registerFailed</code>: Passes error code and string description when fast registration fails.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Required for purchase.</p></li>
+<li><p>Lightweight registration with Cloud Moolah wallet. Returns a Cloud Moolah generated username. User can later perform full registration in the Cloud Moolah purchasing web service to permanently bind the wallet to the user through their phone number.</p></li>
+<li><p>Called after initialization.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>
+// Use custom password register a CloudMoolah acount.
+
+m_MoolahExtensions.FastRegister(&quot;CMPassword&quot;, registerSucceed, registerFailed);
+
+public void registerSucceed(string cmUserName)
+
+{
+
+    m_CloudMoolahUserName = cmUserName;
+
+    Debug.Log (&quot;registerSucceed : cmUserName is &quot; + cmUserName);
+
+}
+
+public void registerFailed(FastRegisterError error, string errorMsg)
+
+{
+
+    Debug.Log (&quot;registerFailed :FastRegisterError is &quot; + error.ToString() + &quot;, errorMsg is &quot; + errorMsg);
+
+}
+
+</code></pre>
+
+<h3>Log in to an existing wallet</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.Login(string CMUserName, string CMPassword, Action&lt;LoginResultState, string&gt; LoginResult)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li><p>
+<code>CMUserName</code>: Returned from previous call to FastRegister (below).</p></li>
+<li><p>
+<code>CMpassword</code>: Used in previous call to FastRegister (below).</p></li>
+<li><p>
+<code>LoginResult</code>: Required. Passes (LoginResultState) attempt result along with (string message) diagnostic message.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Required.</p></li>
+<li><p>User login with Cloud Moolah username.</p></li>
+<li><p>All standalone games can allow users to make purchases without this login (use Unity GUID as username).
+<strong>Example</strong>
+</p></li>
+</ul>
+
+<pre><code>m_MoolahExtensions.Login(m_CloudMoolahUserName, &quot;CMPassword&quot;, loginResult);
+
+public void loginResult(LoginResultState state, string message)
+
+{
+
+    m_IsLoggedIn = state == LoginResultState.LoginSucceed;
+
+}
+</code></pre>
+
+<h2>Testing</h2>
+
+<p>CloudMoolah supports local testing for validating an application’s purchase flow error handling, and for simulating payment without making a real-currency payment.</p>
+
+<h3>Configure developer mode</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.SetMode(CloudMoolahMode mode)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li>
+<code>mode</code>: Type of purchase flow to perform.</li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li>Supply <code>CloudMoolahMode</code> to enable success, failure, or normal operation.</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>m_MoolahExtensions.SetMode(CloudMoolahMode.AlwaysFail); // TESTING: all purchases will fail
+</code></pre>
+
+<h3>Additional API</h3>
+
+<h4>Restore previous purchase transactions</h4>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.RestoreTransactionID(Action&lt;RestoreTransactionIDState&gt; result) 
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li>
+<code>result</code>: The status of transaction.</li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Return all unfinished transactions which have been paid for successfully but have not been paid out (see the RequestPayOut API) yet.</p></li>
+<li><p>Must be called after initialization.</p></li>
+<li><p>Must first call login.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>// Retrieve transaction identifiers, when Client does not already have transaction identifiers.
+
+m_MoolahExtensions.RestoreTransactionID(( RestoreTransactionIDState restoreTransactionIDState)=&gt;{
+
+    // Restore complete, see ProcessPurchase for restored products
+
+};
+</code></pre>
+
+<h3>Completely finish or consume transaction</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.RequestPayOut(string transactionId, Action&lt;string, RequestPayOutState, string&gt; result)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li><p>
+<code>transactionId</code>: Transaction identifier to finish.</p></li>
+<li><p>
+<code>result</code>: TransactionId, the result of payout, any error message.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>This is key for the delivery of a virtual item, and is helpful or necessary for offline games. This API should be used after the virtual item has been delivered.</p></li>
+<li><p>The use-case is that payment has been made but the games crashes before the delivery of the virtual item is complete. The standalone game developer has no record of this, so they must call the <code>TransactionRestore</code> method and the <code>RequestPayOut</code> to finish the transaction.</p></li>
+<li><p>For online games, developers can manage PayOut themselves, so the client does not need to call the PayOut operation and Restore. The client’s game server can also do the PayOut operation by returning the delivery status while the server makes a callback.</p></li>
+<li><p>Call this in <code>ProcessPurchase</code>.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>For an offline game from within <code>ProcessPurchase</code>:</p>
+
+<pre><code>
+// If platform is CloudMoolah, you should to payout on a standalone game and &quot;return PurchaseProcessingResult.Pending&quot; at the end.
+
+if (m_IsCloudMoolahStoreSelected) {
+
+    m_MoolahExtensions.RequestPayOut (m_CloudMoolahTransactionID, (string transactionID, RequestPayOutState state, string message) =&gt; {
+
+        msg = &quot;ProcessPurchase requestPayOut TannsationID:&quot; + transactionID + &quot;,state:&quot;+ state.ToString() + &quot;,msg:&quot; + message;
+
+        if (state == RequestPayOutState.RequestPayOutSucceed) {
+
+            // Finish Transaction
+
+                    m_Controller.ConfirmPendingPurchase(e.purchasedProduct);
+
+            //payout success, issue virtual props. 
+
+        } else {
+
+            //PayOut Failed , Don't issue virtual props.
+
+        }
+
+    });
+
+}
+
+// You should unlock the content here.
+
+// Indicate we have handled this purchase, we will not be informed of it again.x
+
+// If platform is CloudMoolah,you should &quot;return PurchaseProcessingResult.Pending&quot; on a standalone game or &quot;return PurchaseProcessingResult.Complete&quot; on an online game.
+
+return PurchaseProcessingResult.Pending;
+
+</code></pre>
+
+<p>For an online game:</p>
+
+<pre><code>// You should unlock the content here.
+
+// Indicate we have handled this purchase, we will not be informed of it again.x
+
+// If platform is CloudMoolah, you should &quot;return PurchaseProcessingResult.Pending&quot; on a standalone game or &quot;return PurchaseProcessingResult.Complete&quot; on an online game.
+
+return PurchaseProcessingResult.Complete;
+
+</code></pre>
+
+<h3>Validate receipt on the server</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>void IMoolahExtension.ValidateReceipt(string transactionId, string receipt, Action&lt;string, ValidateReceiptState, string&gt; result
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+<li><p>
+<code>transactionId</code>: The payment transaction ID.</p></li>
+<li><p>
+<code>receipt</code>: Receipt data returned through ProcessPurchase.</p></li>
+<li><p>
+<code>result</code>: transactionId, enumeration of status, error message. </p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Validate a transaction on the CloudMoolah server.</p></li>
+<li><p>Call after a payment.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>// Validate a receipt on the server.
+
+m_MoolahExtensions.ValidateReceipt(m_CloudMoolahTransactionID, m_CloudMoolahReceipt, (string transactionID, ValidateReceiptState state, string msg)=&gt;{
+
+    bool succeeded = state == ValidateReceiptState.ValidateSucceed;
+
+});
+</code></pre>
+
+<h2>Constants and enumerations</h2>
+
+<h3>AndroidStore - addition of CloudMoolah</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum AndroidStore
+</code></pre>
+
+<p><strong>New Member</strong></p>
+
+<ul>
+<li>
+<code>CloudMoolah</code>: The Cloud Moolah store’s Android identifier.</li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Indicates the Cloud Moolah store is active for Unity IAP.</p></li>
+<li><p>Get from the <code>standardPurchasingModule</code>’s <code>androidStore</code> field.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>// Determine whether we are using Cloud Moolah IAP. 
+
+bool m_IsCloudMoolahStoreSelected = Application.platform == RuntimePlatform.Android &amp;&amp; module.androidStore == AndroidStore.CloudMoolah;
+</code></pre>
+
+<h3>CloudMoolah store name</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>string AndroidStore.CloudMoolah
+</code></pre>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>The Cloud Moolah store’s shortened, readable name. </p></li>
+<li><p>Constant <code>MoolahAppStore</code>.</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>AndroidStore.CloudMoolah;
+</code></pre>
+
+<h3>Login result codes</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum LoginResultState
+
+</code></pre>
+
+<p><strong>Members</strong></p>
+
+<ul>
+<li><p>
+<code>LoginSucceed</code>: Successful login, session token has been generated.</p></li>
+<li><p>
+<code>UserNotExists</code>: CMUserName not found on Cloud Moolah server.</p></li>
+<li><p>
+<code>PasswordError</code>: CMPassword incorrect.</p></li>
+<li><p>
+<code>LoginCallBackIsNull</code>: Callback parameter is null.</p></li>
+<li><p>
+<code>UserOrPasswordEmpty</code>: Username or Password is empty.</p></li>
+<li><p>
+<code>NetworkError</code>: Network error.</p></li>
+<li><p>
+<code>NotKnown</code>: Unknown.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li>ICloudMoolahExtension.Login returns this state.</li>
+</ul>
+
+<h3>FastRegistration</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum FastRegisterError
+</code></pre>
+
+<p><strong>Members</strong></p>
+
+<ul>
+<li><p>PasswordEmpty: CMPassword is empty.</p></li>
+<li><p>FastRegisterCallBackIsNull: FastRegister callback parameter is null.</p></li>
+<li><p>NetworkError: Network error.</p></li>
+<li><p>NotKnown: Unknown error.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>Cloud Moolah Extension.FastRegister return the errors or exceptions.</p></li>
+<li><p>The callback will return the FastRegisterError if FastRegsiter failed.</p></li>
+</ul>
+
+<h3>Receipt validation state</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum ValidateReceiptState
+</code></pre>
+
+<p><strong>Members</strong></p>
+
+<ul>
+<li><p>
+<code>ValidateSucceed</code>: Receipt validation succeeded.</p></li>
+<li><p>
+<code>ValidateFailed</code>: Receipt validation failed.</p></li>
+<li><p>
+<code>NotKnown</code>: Unknown error.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>After purchase is done, client will query Cloud Moolah Server if the receipt is valid.</p></li>
+<li><p>The callback will return the result of validation.</p></li>
+</ul>
+
+<h3>Transaction identifier restoration state</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum RestoreTransactionIDState
+
+</code></pre>
+
+<p><strong>Members</strong></p>
+
+<ul>
+<li><p>
+<code>NoTransactionRestor</code>e: No transaction needed to restore.</p></li>
+<li><p>
+<code>RestoreSucceed</code>: Restore successful.</p></li>
+<li><p>
+<code>RestoreFailed</code>: Restore failed.</p></li>
+<li><p>
+<code>NotKnown</code>: Unknown error.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>For an offline game, the previous transactions after the login process will be restored.</p></li>
+<li><p>Only recommended for offline games.</p></li>
+<li><p>Status of return.</p></li>
+</ul>
+
+<h3>Transaction completion pay out request state</h3>
+
+<p><strong>Syntax</strong></p>
+
+<pre><code>public enum RequestPayOutState
+</code></pre>
+
+<p><strong>Members</strong></p>
+
+<ul>
+<li><p>
+<code>RequestPayOutSucceed</code>: Payout successful.</p></li>
+<li><p>
+<code>RequestPayOutNetworkError</code>: Network error during payout.</p></li>
+<li><p>
+<code>RequestPayOutFailed</code>: Payout failed.</p></li>
+<li><p>
+<code>NotKnown</code>: Unknown error.</p></li>
+</ul>
+
+<p><strong>Description</strong></p>
+
+<ul>
+<li><p>The result of calling the payout API.</p></li>
+<li><p>Only considered useful for offline, disconnected games - unnecessary for online, connected games.</p></li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPTizen.html"></a></span><div class="tip"> Tizen Store</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPImplementingAStore.html"></a></span><div class="tip">Implementing a Store</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<user_feedback><a href="LeaveFeedback.html" target="_blank">Leave feedback</a></user_feedback><known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2017 Unity Technologies. Publication: 5.6-001M. Built: 2017-06-19.</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Configuring for CloudMoolah Moo Store</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1524742681"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1524742681"></script><script type="text/javascript" src="docdata/toc.js?ts=1524742681"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1524742681"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1524742681">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.6</b> (<a href="https://docs.unity3d.com/2017.1/Documentation/Manual">switch to 2017.1b</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UnityIAPMoolahConfiguringMooStore.html">English</a></li>
+<li><a href="/ja/current/Manual/UnityIAPMoolahConfiguringMooStore.html">日本語</a></li>
+<li><a href="/es/current/Manual/UnityIAPMoolahConfiguringMooStore.html">Español</a></li>
+<li><a href="/kr/current/Manual/UnityIAPMoolahConfiguringMooStore.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UnityIAPMoolahConfiguringMooStore.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual (5.6)</a></li>
+<li><a href="UnityServices.html">Unity Services</a></li>
+<li><a href="UnityIAP.html">Unity IAP</a></li>
+<li><a href="UnityIAPSettingUp.html">Setting up Unity IAP</a></li>
+<li> Configuring for CloudMoolah Moo Store</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPTizenConfiguration.html"></a></span><div class="tip"> Configuring for Tizen Store</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPCodelessIAP.html"></a></span><div class="tip"> Codeless IAP</div>
+</div>
+</div></div>
+<div class="otherversionswrapper" onmouseover="setOtherVersionsDisplay(true)" onmouseout="setOtherVersionsDisplay(false)">
+<a>Other Versions</a><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">Cannot access other versions offline!</div>
+</div>
+<h1>Configuring for CloudMoolah Moo Store</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Introduction</h2>
+
+<p>This guide describes the process of establishing the digital records and relationships necessary for a Unity game to interact with an In-App Purchase Store. The <a href="https://docs.unity3d.com/Manual/UnityIAP.html">Unity IAP</a> purchasing API is targeted.</p>
+
+<p>In-App Purchase (IAP) is the process of transacting money for digital goods. A platform’s Store allows purchase of Products, representing digital goods. These Products have an Identifier, typically of string data type. Products have Types to represent their durability: <em>subscription</em>, <em>consumable</em> (capable of being rebought), and <em>non-consumable</em> (capable of being bought only once) are the most common.</p>
+
+<h2>CloudMoolah Moo Store</h2>
+
+<p>CloudMoolah Developer Portal website: <a href="http://dev.cloudmoolah.com/">dev.cloudmoolah.com</a> </p>
+
+<h3>Getting started</h3>
+
+<ol>
+<li>Write a game implementing Unity IAP. See <a href="https://docs.unity3d.com/Manual/UnityIAPInitialization.html">Unity IAP Initialization</a> and <a href="https://unity3d.com/learn/tutorials/topics/analytics/integrating-unity-iap-your-game-beta">Integrating Unity IAP with your game</a>.</li>
+<li>Keep the game’s product identifiers to hand for use in the Moo Store later. Note that the appKey and hashKey are discussed later in this document.
+<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_0.png" alt="">
+</li>
+<li>Configure the Android target to CloudMoolah to ensure that store is accessed when a purchase is attempted. Alternatively, call the Editor API: <code>UnityPurchasingEditor.TargetAndroidStore(AndroidStore.CloudMoolah);</code>
+<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_1.png" alt="">
+</li>
+<li>After initialization of Unity IAP, inside the game’s <a href="https://docs.unity3d.com/Manual/UnityIAPInitialization.html">IStoreListener.OnInitialized</a> implementation, add digital wallet integration. Do this by adding calls to IMoolahExtensions. Register prototyping the password with Unity’s <a href="https://docs.unity3d.com/ScriptReference/SystemInfo-deviceUniqueIdentifier.html">SystemInfo.deviceUniqueIdentifier</a>, collecting the username result string and passing that as well as the password into IMoolahExtensions.Login. See the scripting documentation in the <a href="UnityIAPMoolahConfiguringMooStore.html">CloudMoolah Store</a> for further discussion of registration and login.</li>
+<li>Build a signed non-Development Build Android APK from your game. See documentation on <a href="https://docs.unity3d.com/Manual/android-GettingStarted.html">getting started with Android development</a> to learn more.</li>
+</ol>
+
+<p>
+<strong>Tip:</strong> Take special precautions to safely store your keystore file. The original keystore is always required to update a published application.</p>
+
+<h3>Register the application</h3>
+
+<p>Register the application at the CloudMoolah Developer Portal website: <a href="http://dev.cloudmoolah.com/">http://dev.cloudmoolah.com/</a>
+</p>
+
+<ol>
+<li><p>Choose <strong>Add New App</strong><img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_2.png" alt="">
+</p></li>
+<li><p>Input game server information if defining an “Online” connected game.<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_3.png" alt="">
+</p></li>
+</ol>
+
+<figure>
+<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_4.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Property</strong></th>
+	<th style="text-align:left;"><strong>Function</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>DataFeedURL_Stage</strong></td>
+	<td style="text-align:left;">URL for redemption - test environment.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>DataFeedURL_Prod</strong></td>
+	<td style="text-align:left;">URL for redemption - production environment.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Testing Account</strong></td>
+	<td style="text-align:left;">Account name for test environment.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Testing Password</strong></td>
+	<td style="text-align:left;">Password for test environment.</td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li>Copy the appKey and hashKey into your application
+<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_5.png" alt="">
+</li>
+</ol>
+
+<h3>Add In-App Purchases (IAP)</h3>
+
+<p>Add in-app purchases for this application at the CloudMoolah Developer Portal (<a href="http://dev.cloudmoolah.com/">dev.cloudmoolah.com</a>).</p>
+
+<ol>
+<li>Choose Add New Item<img src="../uploads/Main/Configuring%20for%20CloudMoolah%20Moo%20Store_image_6.png" alt="">
+</li>
+</ol>
+
+<h3>Test IAP</h3>
+
+<p>The CloudMoolah Game Store supports testing via enabling a “Developer mode” in the app before making purchases. This special build of the game provides a fake offline store which performs performs fake purchases. This does not incur real-world monetary costs related to the product, and allows you to test the app’s purchasing logic.</p>
+
+<p>Modify the game’s Unity IAP integration, adding the following line after creating the ConfigurationBuilder instance, then build and run the app, testing its in-app purchasing logic: </p>
+
+<p>
+<code>builder.Configure&lt;IMoolahConfiguration&gt;().SetMode(CloudMoolahMode.AlwaysSucceed); // TESTING: auto-approves all transactions</code> </p>
+
+<p>You can also configure this to fail all transactions for testing error handling via the CloudMoolahMode.AlwaysFailed enumeration.</p>
+
+<p>
+<strong>Note:</strong> When testing is complete, make sure you remove the SetMode line disable Developer mode by using the CloudMoolahMode.Production enumeration. This ensures users pay real-world money when the app is in use.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPTizenConfiguration.html"></a></span><div class="tip"> Configuring for Tizen Store</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPCodelessIAP.html"></a></span><div class="tip"> Codeless IAP</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<user_feedback><a href="LeaveFeedback.html" target="_blank">Leave feedback</a></user_feedback><known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2017 Unity Technologies. Publication: 5.6-001M. Built: 2017-06-19.</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>
