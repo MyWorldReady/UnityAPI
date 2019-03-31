@@ -99,48 +99,48 @@
 <img src="../uploads/SL/PipelineCullDepth.png" alt="">
 </figure>
 
-<p>Culling is an optimization that does not render polygons facing away from the viewer. All polygons have a front and a back side. Culling makes use of the fact that most objects are closed; if you have a cube, you will never see the sides facing away from you (there is always a side facing you in front of it) so we don’t need to draw the sides facing away. Hence the term: Backface culling.</p>
+<p id="M">Culling is an optimization that does not render polygons facing away from the viewer. All polygons have a front and a back side. Culling makes use of the fact that most objects are closed; if you have a cube, you will never see the sides facing away from you (there is always a side facing you in front of it) so we don’t need to draw the sides facing away. Hence the term: Backface culling.</p>
 
-<p>The other feature that makes rendering looks correct is Depth testing. Depth testing makes sure that only the closest surfaces objects are drawn in a scene.</p>
+<p>The other feature that makes rendering looks correct is Depth testing.<span id="M"> Depth testing makes sure that only the closest surfaces objects are drawn in a scene</span>.</p>
 
 <h2>Syntax</h2>
 
 <h3>Cull</h3>
 
-<pre><code>Cull Back | Front | Off
+<pre><code id="M">Cull Back | Front | Off
 </code></pre>
 
 <p>Controls which sides of polygons should be culled (not drawn)</p>
 
 <ul>
-<li><p>
+<li id="M"><p>
 <strong>Back</strong> Don’t render polygons facing away from the viewer <em>(default)</em>.</p></li>
-<li><p>
+<li id="M"><p>
 <strong>Front</strong> Don’t render polygons facing towards the viewer. Used for turning objects inside-out.</p></li>
-<li><p>
+<li id="M"><p>
 <strong>Off</strong> Disables culling - all faces are drawn. Used for special effects.</p></li>
 </ul>
 
 <h3>ZWrite</h3>
 
-<pre><code>ZWrite On | Off
+<pre><code  id="M">ZWrite On | Off
 </code></pre>
 
 <p>Controls whether pixels from this object are written to the depth buffer (default is <em>On</em>). If you’re drawng solid objects, leave this on. If you’re drawing semitransparent effects, switch to <em>ZWrite Off</em>. For more details read below.</p>
 
 <h3>ZTest</h3>
 
-<pre><code>ZTest Less | Greater | LEqual | GEqual | Equal | NotEqual | Always
+<pre><code id="M">ZTest Less | Greater | LEqual | GEqual | Equal | NotEqual | Always
 </code></pre>
 
-<p>How should depth testing be performed. Default is <em>LEqual</em> (draw objects in from or at the distance as existing objects; hide objects behind them).</p>
+<p id="M">How should depth testing be performed. Default is <em>LEqual</em> (draw objects in from or at the distance as existing objects; hide objects behind them).</p>
 
 <h3>Offset</h3>
 
-<pre><code>Offset Factor, Units
+<pre><code id="M">Offset Factor, Units
 </code></pre>
 
-<p>Allows you specify a depth offset with two parameters. <em>factor</em> and <em>units</em>. <em>Factor</em> scales the maximum Z slope, with respect to X or Y of the polygon, and <em>units</em> scale the minimum resolvable depth buffer value. This allows you to force one polygon to be drawn on top of another although they are actually in the same position. For example <em>Offset 0, –1</em> pulls the polygon closer to the camera ignoring the polygon’s slope, whereas <em>Offset –1, –1</em> will pull the polygon even closer when looking at a grazing angle.</p>
+<p id="M">Allows you specify a depth offset with two parameters. <em>factor</em> and <em>units</em>. <em>Factor</em> scales the maximum Z slope, with respect to X or Y of the polygon, and <em>units</em> scale the minimum resolvable depth buffer value. This allows you to force one polygon to be drawn on top of another although they are actually in the same position. For example <em>Offset 0, –1</em> pulls the polygon closer to the camera ignoring the polygon’s slope, whereas <em>Offset –1, –1</em> will pull the polygon even closer when looking at a grazing angle.</p>
 
 <h2>Examples</h2>
 
