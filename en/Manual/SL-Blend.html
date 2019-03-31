@@ -95,30 +95,30 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Blending is used to make transparent objects.</p>
+<p><span id="M">Blending is used to make transparent objects</span>.</p>
 
 <figure>
 <img src="../uploads/SL/PipelineBlend.png" alt="">
 </figure>
 
-<p>When graphics are rendered, after all Shaders have executed and all Textures have been applied, the pixels are written to the screen. How they are combined with what is already there is controlled by the Blend command.</p>
+<p><span id="M">When graphics are rendered, after all Shaders have executed and all Textures have been applied, the pixels are written to the screen. How they are combined with what is already there is controlled by the Blend command.</span></p>
 
 <h2>Syntax</h2>
 
 <p>
-<code>Blend Off</code>: Turn off blending (this is the default)</p>
+<code id="M">Blend Off</code>: Turn off blending (this is the default)</p>
 
 <p>
-<code>Blend SrcFactor DstFactor</code>: Configure and enable blending. The generated color is multiplied by the <strong>SrcFactor</strong>. The color already on screen is multiplied by <strong>DstFactor</strong> and the two are added together.</p>
+<code id="M">Blend SrcFactor DstFactor</code>: Configure and enable blending. The generated color is multiplied by the <strong>SrcFactor</strong>. The color already on screen is multiplied by <strong>DstFactor</strong> and the two are added together.</p>
 
 <p>
 <code>Blend SrcFactor DstFactor, SrcFactorA DstFactorA</code>: Same as above, but use different factors for blending the alpha channel.</p>
 
 <p>
-<code>BlendOp Op</code>: Instead of adding blended colors together, carry out a different operation on them.</p>
+<code id="M">BlendOp Op</code>: Instead of adding blended colors together, carry out a different operation on them.</p>
 
 <p>
-<code>BlendOp OpColor, OpAlpha</code>: Same as above, but use different blend operation for color (RGB) and alpha (A) channels.</p>
+<code id="M">BlendOp OpColor, OpAlpha</code>: Same as above, but use different blend operation for color (RGB) and alpha (A) channels.</p>
 
 <p>Additionally, you can set upper-rendertarget blending modes. When
 using multiple render target (MRT) rendering, the regular syntax
@@ -131,7 +131,7 @@ above sets up the same blending modes for all render targets. The following synt
 <li><code>BlendOp N OpColor, OpAlpha</code></li>
 </ul>
 
-<p>
+<p id="M">
 <code>AlphaToMask On</code>: Turns on alpha-to-coverage. When MSAA is used, alpha-to-coverage modifies multisample coverage mask proportionally to the pixel Shader result alpha value. This is typically used for less aliased outlines than regular alpha test; useful for vegetation and other alpha-tested Shaders.</p>
 
 <h2>Blend operations</h2>
@@ -256,7 +256,7 @@ above sets up the same blending modes for all render targets. The following synt
 </tr>
 </thead>
 
-<tbody>
+<tbody id="M">
 <tr>
 	<td style="text-align:left;"><strong>One</strong></td>
 	<td style="text-align:left;">The value of one - use this to let either the source or the destination color come through fully.</td>
@@ -304,12 +304,12 @@ above sets up the same blending modes for all render targets. The following synt
 
 <p>Below are the most common blend types:</p>
 
-<pre><code>Blend SrcAlpha OneMinusSrcAlpha // Traditional transparency
-Blend One OneMinusSrcAlpha // Premultiplied transparency
-Blend One One // Additive
-Blend OneMinusDstColor One // Soft Additive
-Blend DstColor Zero // Multiplicative
-Blend DstColor SrcColor // 2x Multiplicative
+<pre><code id="M">Blend SrcAlpha OneMinusSrcAlpha // Traditional transparency(传统透明度)
+Blend One OneMinusSrcAlpha // Premultiplied transparency(预乘透明度)
+Blend One One // Additive(叠加)
+Blend OneMinusDstColor One // Soft Additive(柔和叠加)
+Blend DstColor Zero // Multiplicative(相乘——正片叠底)
+Blend DstColor SrcColor // 2x Multiplicative(两倍相乘)
 </code></pre>
 
 <h2>Alpha blending, alpha testing, alpha-to-coverage</h2>
@@ -327,7 +327,7 @@ Blend DstColor SrcColor // 2x Multiplicative
 
 <p>Often, alpha-blended Shaders also set transparent <a href="SL-SubShaderTags.html">render queue</a>, and turn off depth writes. So the Shader code looks like:</p>
 
-<pre><code>// inside SubShader
+<pre><code id="M">// inside SubShader
 Tags { &quot;Queue&quot;=&quot;Transparent&quot; &quot;RenderType&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; }
 
 // inside Pass
@@ -342,11 +342,11 @@ Blend SrcAlpha OneMinusSrcAlpha
 <figcaption>clip() in pixel Shader</figcaption>
 </figure>
 
-<p>By using <code>clip()</code> HLSL instruction in the pixel Shader, a pixel can be “discarded” or not based on some criteria. This means that object can still be considered as fully opaque, and has no draw ordering issues. However, this means that all pixels are fully opaque or transparent, leading to aliasing (“jaggies”).</p>
+<p id="M">By using <code>clip()</code> HLSL instruction in the pixel Shader, a pixel can be “discarded” or not based on some criteria. This means that object can still be considered as fully opaque, and has no draw ordering issues. However, this means that all pixels are fully opaque or transparent, leading to aliasing (“jaggies”).</p>
 
 <p>Often, alpha-tested Shaders also set cutout <a href="SL-SubShaderTags.html">render queue</a>, so the Shader code looks like this:</p>
 
-<pre><code>// inside SubShader
+<pre><code id="M">// inside SubShader
 Tags { &quot;Queue&quot;=&quot;AlphaTest&quot; &quot;RenderType&quot;=&quot;TransparentCutout&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; }
 
 // inside CGPROGRAM in the fragment Shader:

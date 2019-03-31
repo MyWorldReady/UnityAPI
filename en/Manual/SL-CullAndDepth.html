@@ -163,7 +163,7 @@
 
 <h3>Transparent shader with depth writes</h3>
 
-<p>Usually <a href="shader-TransparentFamily.html">semitransparent shaders</a> do not write into the depth buffer. However, this can create draw order problems, especially with complex non-convex meshes. If you want to fade in &amp; out meshes like that, then using a shader that fills in the depth buffer before rendering transparency might be useful.</p>
+<p id="M">Usually <a href="shader-TransparentFamily.html">semitransparent shaders</a> do not write into the depth buffer. However, this can create draw order problems, especially with complex non-convex meshes. If you want to fade in &amp; out meshes like that, then using a shader that fills in the depth buffer before rendering transparency might be useful.</p>
 
 <figure>
 <img src="../uploads/Main/TransparentDiffuseZWrite.png" alt="Semitransparent object; left: standard Transparent/Diffuse shader; right: shader that writes to depth buffer.">
@@ -176,17 +176,17 @@ Properties {
     _MainTex (&quot;Base (RGB) Trans (A)&quot;, 2D) = &quot;white&quot; {}
 }
 SubShader {
-    Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Transparent&quot;}
+    <span id="M">Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Transparent&quot;}</span>
     LOD 200
 
     // extra pass that renders to depth buffer only
-    Pass {
+     <span id="M">Pass {
         ZWrite On
         ColorMask 0
-    }
+    }</span>
 
     // paste in forward rendering passes from Transparent/Diffuse
-    UsePass &quot;Transparent/Diffuse/FORWARD&quot;
+    <span id="M">UsePass &quot;Transparent/Diffuse/FORWARD&quot;</span>
 }
 Fallback &quot;Transparent/VertexLit&quot;
 }
@@ -205,7 +205,7 @@ Fallback &quot;Transparent/VertexLit&quot;
     SubShader {
         // Render the front-facing parts of the object.
         // We use a simple white material, and apply the main texture.
-        Pass {
+        <span id="M">Pass {
             Material {
                 Diffuse (1,1,1,1)
             }
@@ -213,21 +213,21 @@ Fallback &quot;Transparent/VertexLit&quot;
             SetTexture [_MainTex] {
                 Combine Primary * Texture
             }
-        }
+        }</span>
 
         // Now we render the back-facing triangles in the most
         // irritating color in the world: BRIGHT PINK!
-        Pass {
+         <span id="M">Pass {
             Color (1,0,1,1)
             Cull Front
-        }
+        }</span>
     }
 }
 </code></pre>
 
 <h3>Glass Culling</h3>
 
-<p>Controlling Culling is useful for more than debugging backfaces. If you have transparent objects, you quite often want to show the backfacing side of an object. If you render without any culling (<strong>Cull Off</strong>), you’ll most likely have some rear faces overlapping some of the front faces.</p>
+<p>Controlling Culling is useful for more than debugging backfaces. If you have transparent objects, you quite often want to show the backfacing side of an object. If you render without any culling (<strong>Cull Off</strong>), you’ll most likely have some rear(后) faces overlapping some of the front faces.</p>
 
 <p>Here is a simple shader that will work for convex objects (spheres, cubes, car windscreens).</p>
 
@@ -256,7 +256,7 @@ Fallback &quot;Transparent/VertexLit&quot;
         // Set up alpha blending
         Blend SrcAlpha OneMinusSrcAlpha
 
-        // Render the back facing parts of the object.
+        <span id="M">// Render the back facing parts of the object.
         // If the object is convex, these will always be further away
         // than the front-faces.
         Pass {
@@ -264,8 +264,8 @@ Fallback &quot;Transparent/VertexLit&quot;
             SetTexture [_MainTex] {
                 Combine Primary * Texture
             }
-        }
-        // Render the parts of the object facing us.
+        }</span>
+        <span id="M">// Render the parts of the object facing us.
         // If the object is convex, these will be closer than the
         // back-faces.
         Pass {
@@ -273,7 +273,7 @@ Fallback &quot;Transparent/VertexLit&quot;
             SetTexture [_MainTex] {
                 Combine Primary * Texture
             }
-        }
+        }</span>
     }
 }
 </code></pre>
