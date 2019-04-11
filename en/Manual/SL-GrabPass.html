@@ -94,15 +94,15 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>GrabPass is a special pass type - it grabs the contents of the screen where the object is about to be drawn into a texture. This texture can be used in subsequent passes to do advanced image based effects.</p>
+<p id="M">GrabPass is a special pass type - it grabs the contents of the screen where the object is about to be drawn into a texture. This texture can be used in subsequent passes to do advanced image based effects.</p>
 
 <h2>Syntax</h2>
 
-<p>The GrabPass belongs inside a <a href="SL-SubShader.html">subshader</a>. It can take two forms:</p>
+<p><span  id="M"> The GrabPass belongs inside a <a href="SL-SubShader.html">subshader</a></span>. It can take two forms:</p>
 
 <ul>
-<li>Just <code>GrabPass { }</code> grabs the current screen contents into a texture. The texture can be accessed in further passes by <code>_GrabTexture</code> name. Note: this form of grab pass will do the time-consuming screen grabbing operation for each object that uses it.</li>
-<li>
+<li id="M">Just <code>GrabPass { }</code> grabs the current screen contents into a texture. The texture can be accessed in further passes by <code>_GrabTexture</code> name. Note: this form of grab pass will do the time-consuming screen grabbing operation for each object that uses it.</li>
+<li id="M">
 <code>GrabPass { &quot;TextureName&quot; }</code> grabs the current screen contents into a texture, but will only do that once per frame for the first object that uses the given texture name. The texture can be accessed in further passes by the given texture name. This is a more performant method when you have multiple objects using GrabPass in the scene.</li>
 </ul>
 

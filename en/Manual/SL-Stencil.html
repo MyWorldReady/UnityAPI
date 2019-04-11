@@ -97,7 +97,7 @@
 
 <p>The stencil buffer can be used as a general purpose per pixel mask for saving or discarding pixels.</p>
 
-<p>The stencil buffer is usually an 8 bit integer per pixel. The value can be written to, increment or decremented. Subsequent draw calls can test against the value, to decide if a pixel should be discarded before running the pixel shader.</p>
+<p  id="M">The stencil buffer is usually an 8 bit integer per pixel. The value can be written to, increment or decremented. Subsequent draw calls can test against the value, to decide if a pixel should be discarded before running the pixel shader.</p>
 
 <h2>Syntax</h2>
 
@@ -106,49 +106,49 @@
 <pre><code>    Ref referenceValue
 </code></pre>
 
-<p>The value to be compared against (if Comp is anything else than <em>always</em>) and/or the value to be written to the buffer (if either Pass, Fail or ZFail is set to replace). 0–255 integer.</p>
+<p id="M">The value to be compared against (if Comp is anything else than <em>always</em>) and/or the value to be written to the buffer (if either Pass, Fail or ZFail is set to replace). 0–255 integer.</p>
 
 <h3>ReadMask</h3>
 
 <pre><code>    ReadMask readMask
 </code></pre>
 
-<p>An 8 bit mask as an 0–255 integer, used when comparing the reference value with the contents of the buffer (<em>referenceValue</em> &amp; <em>readMask</em>) <em>comparisonFunction</em> (<em>stencilBufferValue</em> &amp; <em>readMask</em>). Default: <em>255</em>.</p>
+<p id="M">An 8 bit mask as an 0–255 integer, used when comparing the reference value with the contents of the buffer (<em>referenceValue</em> &amp; <em>readMask</em>) <em>comparisonFunction</em> (<em>stencilBufferValue</em> &amp; <em>readMask</em>). Default: <em>255</em>.</p>
 
 <h3>WriteMask</h3>
 
 <pre><code>    WriteMask writeMask
 </code></pre>
 
-<p>An 8 bit mask as an 0–255 integer, used when writing to the buffer. Note that, like other write masks, it specifies which bits of stencil buffer will be affected by write (i.e. WriteMask 0 means that no bits are affected and not that 0 will be written). Default: <em>255</em>.</p>
+<p id="M">An 8 bit mask as an 0–255 integer, used when writing to the buffer. Note that, like other write masks, it specifies which bits of stencil buffer will be affected by write (i.e. WriteMask 0 means that no bits are affected and not that 0 will be written). Default: <em>255</em>.</p>
 
 <h3>Comp</h3>
 
 <pre><code>    Comp comparisonFunction
 </code></pre>
 
-<p>The function used to compare the reference value to the current contents of the buffer. Default: <em>always</em>.</p>
+<p id="M">The function used to compare the reference value to the current contents of the buffer. Default: <em>always</em>.</p>
 
 <h3>Pass</h3>
 
 <pre><code>    Pass stencilOperation
 </code></pre>
 
-<p>What to do with the contents of the buffer if the stencil test (and the depth test) passes. Default: <em>keep</em>.</p>
+<p id="M">What to do with the contents of the buffer if the stencil test (and the depth test) passes. Default: <em>keep</em>.</p>
 
 <h3>Fail</h3>
 
 <pre><code>    Fail stencilOperation
 </code></pre>
 
-<p>What to do with the contents of the buffer if the stencil test fails. Default: <em>keep</em>.</p>
+<p id="M">What to do with the contents of the buffer if the stencil test fails. Default: <em>keep</em>.</p>
 
 <h3>ZFail</h3>
 
 <pre><code>    ZFail stencilOperation
 </code></pre>
 
-<p>What to do with the contents of the buffer if the stencil test passes, but the depth test fails. Default: <em>keep</em>.</p>
+<p id="M">What to do with the contents of the buffer if the stencil test passes, but the depth test fails. Default: <em>keep</em>.</p>
 
 <p>Comp, Pass, Fail and ZFail will be applied to the front-facing geometry, unless <em>Cull Front</em> is specified, in which case it’s back-facing geometry. You can also explicitly specify the two-sided stencil state by defining CompFront, PassFront, FailFront, ZFailFront (for front-facing geometry), and CompBack, PassBack, FailBack, ZFailBack (for back-facing geometry).</p>
 
@@ -169,7 +169,7 @@
 </tr>
 </thead>
 
-<tbody>
+<tbody id="M">
 <tr>
 	<td style="text-align:left;"><strong>Greater</strong></td>
 	<td style="text-align:left;">Only render pixels whose reference value is greater than the value in the buffer.</td>
@@ -222,7 +222,7 @@
 </tr>
 </thead>
 
-<tbody>
+<tbody id="M">
 <tr>
 	<td style="text-align:left;"><strong>Keep</strong></td>
 	<td style="text-align:left;">Keep the current contents of the buffer.</td>

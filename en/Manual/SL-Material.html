@@ -95,11 +95,11 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The material and lighting parameters are used to control the built-in vertex lighting. Vertex lighting is the standard Direct3D/OpenGL lighting model that is computed for each vertex. <strong>Lighting on</strong> turns it on. Lighting is affected by <strong>Material</strong> block, <strong>ColorMaterial</strong> and <strong>SeparateSpecular</strong> commands.</p>
+<p><span id="M"> The material and lighting parameters are used to control the built-in vertex lighting</span>. Vertex lighting is the standard Direct3D/OpenGL lighting model that is computed for each vertex. <strong>Lighting on</strong> turns it on. Lighting is affected by <strong>Material</strong> block, <strong>ColorMaterial</strong> and <strong>SeparateSpecular</strong> commands.</p>
 
 <p><em><strong>Note:</strong> Material/Lighting commands have no effect when <a href="SL-ShaderPrograms.html">vertex programs</a> are used; as in that case all calculations are completely described in the shader. It is advisable to use programmable shaders these days instead of legacy vertex lighting. For these you don’t use any of the commands described here, instead you define your own <a href="SL-ShaderPrograms.html">vertex and fragment programs</a> where you do all lighting, texturing and anything else yourself.</em></p>
 
-<p>Vertex Coloring &amp; Lighting is the first effect to be calculated for any rendered geometry. It operates on the vertex level, and calculates the base color that is used before textures are applied.</p>
+<p id="M">Vertex Coloring &amp; Lighting is the first effect to be calculated for any rendered geometry. It operates on the vertex level, and calculates the base color that is used before textures are applied.</p>
 
 <h2>Syntax</h2>
 

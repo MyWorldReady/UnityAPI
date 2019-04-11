@@ -105,26 +105,26 @@
 
 <h2>Details</h2>
 
-<p>Tags are basically key-value pairs. Inside a <a href="SL-SubShader.html">SubShader</a> tags are used to determine rendering order and other parameters of a subshader. Note that the following tags recognized by Unity <strong>must</strong> be inside SubShader section and not inside Pass!</p>
+<p id="M">Tags are basically key-value pairs. Inside a <a href="SL-SubShader.html">SubShader</a> tags are used to determine rendering order and other parameters of a subshader. Note that the following tags recognized by Unity <strong>must</strong> be inside SubShader section and not inside Pass!</p>
 
-<p>In addition to built-in tags recognized by Unity, you can use your own tags and query them using <a href="../ScriptReference/Material.GetTag.html">Material.GetTag</a> function.</p>
+<p id="M">In addition to built-in tags recognized by Unity, you can use your own tags and query them using <a href="../ScriptReference/Material.GetTag.html">Material.GetTag</a> function.</p>
 
 <h3>Rendering Order - Queue tag</h3>
 
-<p>You can determine in which order your objects are drawn using the <em>Queue</em> tag. A Shader decides which render queue its objects belong to, this way any Transparent shaders make sure they are drawn after all opaque objects and so on.</p>
+<p>You can determine in which order your objects are drawn using the <em>Queue</em> tag. A Shader decides which render queue its objects belong to,<span id="M"> this way any Transparent shaders make sure they are drawn after all opaque objects and so on</span>.</p>
 
 <p>There are four pre-defined render queues, but there can be more queues in between the predefined ones. The predefined queues are:</p>
 
 <ul>
-<li>
+<li id="M">
 <code>Background</code> - this render queue is rendered before any others. You’d typically use this for things that really need to be in the background.</li>
-<li>
+<li id="M">
 <code>Geometry</code> <em>(default)</em> - this is used for most objects. Opaque geometry uses this queue.</li>
-<li>
+<li id="M">
 <code>AlphaTest</code> - alpha tested geometry uses this queue. It’s a separate queue from <code>Geometry</code> one since it’s more efficient to render alpha-tested objects after all solid ones are drawn.</li>
-<li>
+<li id="M">
 <code>Transparent</code> - this render queue is rendered after <em>Geometry</em> and <code>AlphaTest</code>, in back-to-front order. Anything alpha-blended (i.e. shaders that don’t write to depth buffer) should go here (glass, particle effects).</li>
-<li>
+<li id="M">
 <code>Overlay</code> - this render queue is meant for overlay effects. Anything rendered last should go here (e.g. lens flares).</li>
 </ul>
 
@@ -132,7 +132,7 @@
 {
      SubShader
      {
-        Tags { &quot;Queue&quot; = &quot;Transparent&quot; }
+        <span id="M">Tags { &quot;Queue&quot; = &quot;Transparent&quot; }</span>
         Pass
         {
             // rest of the shader body...
@@ -143,15 +143,15 @@
 
 <p><em>An example illustrating how to render something in the transparent queue</em></p>
 
-<p>For special uses in-between queues can be used. Internally each queue is represented by integer index; <code>Background</code> is 1000, <code>Geometry</code> is 2000, <code>AlphaTest</code> is 2450, <code>Transparent</code> is 3000 and <code>Overlay</code> is 4000. If a shader uses a queue like this:</p>
+<p id="M">For special uses in-between queues can be used. Internally each queue is represented by integer index; <code>Background</code> is 1000, <code>Geometry</code> is 2000, <code>AlphaTest</code> is 2450, <code>Transparent</code> is 3000 and <code>Overlay</code> is 4000. If a shader uses a queue like this:</p>
 
-<pre><code>Tags { &quot;Queue&quot; = &quot;Geometry+1&quot; }
+<pre><code id="M">Tags { &quot;Queue&quot; = &quot;Geometry+1&quot; }
 </code></pre>
 
-<p>This will make the object be rendered after all opaque objects, but before transparent objects, as render queue index will be 2001 (geometry plus one). This is useful in situations where you want some objects be always drawn between other sets of objects. For example, in most cases transparent water should be drawn after opaque objects but before transparent objects.</p>
+<p id="M">This will make the object be rendered after all opaque objects, but before transparent objects, as render queue index will be 2001 (geometry plus one). This is useful in situations where you want some objects be always drawn between other sets of objects. For example, in most cases transparent water should be drawn after opaque objects but before transparent objects.</p>
 
-<p>Queues up to 2500 (“Geometry+500”) are consided “opaque” and optimize the drawing order of the objects for best performance.
-Higher rendering queues are considered for “transparent objects” and sort objects by distance, starting rendering from the furthest ones and ending with the closest ones. Skyboxes are drawn in between all opaque and all transparent objects.</p>
+<p>Queues up to 2500 (“Geometry+500”) are consided “opaque” and optimize the drawing order of the objects for best performance.<span id="M">
+Higher rendering queues are considered for “transparent objects” and sort objects by distance, starting rendering from the furthest ones and ending with the closest ones. Skyboxes are drawn in between all opaque and all transparent objects.</span></p>
 
 <h3>RenderType tag</h3>
 
@@ -162,24 +162,24 @@ Higher rendering queues are considered for “transparent objects” and sort ob
 
 <p>Some shaders (mostly ones that do object-space vertex deformations) do not work when <a href="DrawCallBatching.html">Draw Call Batching</a> is used – that’s because batching transforms all geometry into world space, so “object space” is lost.</p>
 
-<p>
+<p id="M">
 <code>DisableBatching</code> tag can be used to incidate that. There are three possible values: “True” (always disables batching for this shader), “False” (does not disable batching; this is default) and “LODFading” (disable batching when LOD fading is active; mostly used on trees).</p>
 
 <h3>ForceNoShadowCasting tag</h3>
 
-<p>If <code>ForceNoShadowCasting</code> tag is given and has a value of “True”, then an object that is rendered using this subshader will never cast shadows. This is mostly useful when you are using shader replacement on transparent objects and you do not wont to inherit a shadow pass from another subshader.</p>
+<p id="M">If <code>ForceNoShadowCasting</code> tag is given and has a value of “True”, then an object that is rendered using this subshader will never cast shadows. This is mostly useful when you are using shader replacement on transparent objects and you do not wont to inherit a shadow pass from another subshader.</p>
 
 <h3>IgnoreProjector tag</h3>
 
-<p>If <code>IgnoreProjector</code> tag is given and has a value of “True”, then an object that uses this shader will not be affected by <a href="class-Projector.html">Projectors</a>. This is mostly useful on semitransparent objects, because there is no good way for Projectors to affect them.</p>
+<p id="M">If <code>IgnoreProjector</code> tag is given and has a value of “True”, then an object that uses this shader will not be affected by <a href="class-Projector.html">Projectors</a>. This is mostly useful on semitransparent objects, because there is no good way for Projectors to affect them.</p>
 
 <h3>CanUseSpriteAtlas tag</h3>
 
-<p>Set <code>CanUseSpriteAtlas</code> tag to “False” if the shader is meant for sprites, and will not work when they are packed into atlases (see <a href="SpritePacker.html">Sprite Packer</a>).</p>
+<p id="M">Set <code>CanUseSpriteAtlas</code> tag to “False” if the shader is meant for sprites, and will not work when they are packed into atlases (see <a href="SpritePacker.html">Sprite Packer</a>).</p>
 
 <h3>PreviewType tag</h3>
 
-<p>
+<p id="M">
 <code>PreviewType</code> indicates how the material inspector preview should display the material. By default materials are displayed as spheres, but PreviewType can also be set to “Plane” (will display as 2D) or “Skybox” (will display as skybox).</p>
 
 <h2>See Also</h2>

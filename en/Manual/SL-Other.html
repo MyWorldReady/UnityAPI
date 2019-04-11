@@ -95,7 +95,7 @@
 
 <h2>Category</h2>
 
-<p>
+<p id="M">
 <strong>Category</strong> is a logical grouping of any commands below it. This is mostly used to “inherit” rendering state. For example, your shader might have multiple <a href="SL-SubShader.html">subshaders</a>, and each of them requires <a href="SL-Fog.html">fog</a> to be off, <a href="SL-Blend.html">blending</a> set to additive, etc. You can use Category for that:</p>
 
 <pre><code>Shader &quot;example&quot; {
@@ -113,7 +113,7 @@ Category {
 }
 </code></pre>
 
-<p>Category block only affects shader parsing, it’s exactly the same as “pasting” any state set inside Category into all blocks below it. It does not affect shader execution speed at all.</p>
+<pid="M">Category block only affects shader parsing, it’s exactly the same as “pasting” any state set inside Category into all blocks below it. It does not affect shader execution speed at all.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SL-CustomEditor.html"></a></span><div class="tip">ShaderLab: CustomEditor</div>

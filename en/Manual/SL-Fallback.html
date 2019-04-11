@@ -93,11 +93,11 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>After all Subshaders a Fallback can be defined. It basically says “if none of subshaders can run on this hardware, try using the ones from another shader”.</p>
+<p id="M">After all Subshaders a Fallback can be defined. It basically says “if none of subshaders can run on this hardware, try using the ones from another shader”.</p>
 
 <h2>Syntax</h2>
 
-<pre><code>    Fallback &quot;name&quot;
+<pre><code id="M">    Fallback &quot;name&quot;
 </code></pre>
 
 <p>Fallback to shader with a given <em>name</em> or…</p>
@@ -109,11 +109,11 @@
 
 <h2>Details</h2>
 
-<p>A fallback statement has the same effect as if all subshaders from the other shader would be inserted into its place.</p>
+<p id="M">A fallback statement has the same effect as if all subshaders from the other shader would be inserted into its place.</p>
 
 <h2>Example</h2>
 
-<pre><code>    Shader &quot;example&quot; {
+<pre><code id="M">    Shader &quot;example&quot; {
         // properties and subshaders here...
         Fallback &quot;otherexample&quot;
     }

@@ -98,7 +98,7 @@
 <p>
 <strong>If you want to write shaders that interact with lighting, take a look at <a href="SL-SurfaceShaders.html">Surface Shaders</a> documentation</strong>. For some examples, take a look at <a href="SL-VertexFragmentShaderExamples.html"><strong>Vertex and Fragment Shader Examples</strong></a>. The rest of this page assumes shaders do not interact with Unity lights (for example special effects, <a href="PostProcessingOverview.html">post-processed effects</a> etc.)</p>
 
-<p>Shader programs are written in <a href="SL-ShadingLanguage.html">HLSL language</a>, by embedding “snippets” in the shader text, somewhere inside the <a href="SL-Pass.html">Pass</a> command. They usually look like this:</p>
+<p id="M">Shader programs are written in <a href="SL-ShadingLanguage.html">HLSL language</a>, by embedding “snippets” in the shader text, somewhere inside the <a href="SL-Pass.html">Pass</a> command. They usually look like this:</p>
 
 <pre><code>  Pass {
       // ... the usual pass state setup ...
@@ -117,11 +117,11 @@
 
 <h2>HLSL snippets</h2>
 
-<p>HLSL program snippets are written between <strong>CGPROGRAM</strong> and <strong>ENDCG</strong> keywords, or alternatively between <strong>HLSPROGRAM</strong> and <strong>ENDHLSL</strong>. The latter form does <em>not</em> automatically include HLSLSupport and UnityShaderVariables <a href="SL-BuiltinIncludes.html">built-in header files</a>.</p>
+<p id="M">HLSL program snippets are written between <strong>CGPROGRAM</strong> and <strong>ENDCG</strong> keywords, or alternatively between <strong>HLSPROGRAM</strong> and <strong>ENDHLSL</strong>. The latter form does <em>not</em> automatically include HLSLSupport and UnityShaderVariables <a href="SL-BuiltinIncludes.html">built-in header files</a>.</p>
 
 <p>At the start of the snippet compilation directives can be given as <strong>#pragma</strong> statements. Directives indicating which shader functions to compile:</p>
 
-<ul>
+<ul id="M">
 <li>
 <strong>#pragma vertex</strong> <em>name</em> - compile function <em>name</em> as the vertex shader.</li>
 <li>
@@ -151,7 +151,7 @@
 <strong>#pragma hardware_tier_variants</strong> <em>renderer name</em> - generate <a href="SL-MultipleProgramVariants.html">multiple shader hardware variants</a> of each compiled shader, for each hardware tier that could run the selected renderer. See <em>Renderers</em> below for details.</li>
 </ul>
 
-<p>Each snippet must contain at least a vertex program and a fragment program. Thus <strong>#pragma vertex</strong> and <strong>#pragma fragment</strong> directives are required.</p>
+<p id="M">Each snippet must contain at least a vertex program and a fragment program. Thus <strong>#pragma vertex</strong> and <strong>#pragma fragment</strong> directives are required.</p>
 
 <p>Compilation directives that don’t do anything starting with Unity 5.0 and can be safely removed: <code>#pragma glsl</code>, <code>#pragma glsl_no_auto_normalization</code>, <code>#pragma profileoption</code>, <code>#pragma fragmentoption</code>.</p>
 
@@ -188,9 +188,9 @@
 <strong>wiiu</strong> - Nintendo Wii U</li>
 </ul>
 
-<p>For example, this line would only compile shader into D3D9 mode:</p>
+<p id="M">For example, this line would only compile shader into D3D9 mode:</p>
 
-<pre><code>#pragma only_renderers d3d9
+<pre><code id="M">#pragma only_renderers d3d9
 </code></pre>
 
 <h2>See Also</h2>
