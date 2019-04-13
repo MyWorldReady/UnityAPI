@@ -106,7 +106,7 @@ _MyCubemap (&quot;Cubemap&quot;, CUBE) = &quot;&quot; {}
 
 <p>would be declared for access in Cg/HLSL code as:</p>
 
-<pre><code>fixed4 _MyColor; // low precision type is usually enough for colors
+<pre><code id="M">fixed4 _MyColor; // low precision type is usually enough for colors
 float4 _MyVector;
 float _MyFloat; 
 sampler2D _MyTexture;
@@ -123,7 +123,7 @@ samplerCUBE _MyCubemap;
 <ul>
 <li>Color and Vector properties map to <strong>float4</strong>, <strong>half4</strong> or <strong>fixed4</strong> variables.</li>
 <li>Range and Float properties map to <strong>float</strong>, <strong>half</strong> or <strong>fixed</strong> variables.</li>
-<li>Texture properties map to <strong>sampler2D</strong> variables for regular (2D) textures; Cubemaps map to <strong>samplerCUBE</strong>; and 3D textures map to <strong>sampler3D</strong>.</li>
+<li id="M">Texture properties map to <strong>sampler2D</strong> variables for regular (2D) textures; Cubemaps map to <strong>samplerCUBE</strong>; and 3D textures map to <strong>sampler3D</strong>.</li>
 </ul>
 
 <h2>How property values are provided to shaders</h2>
@@ -136,16 +136,16 @@ samplerCUBE _MyCubemap;
 <li>Global shader properties, set either by Unity rendering code itself (see <a href="SL-UnityShaderVariables.html">built-in shader variables</a>), or from your own scripts (e.g. <a href="../ScriptReference/Shader.SetGlobalTexture.html">Shader.SetGlobalTexture</a>).</li>
 </ul>
 
-<p>The order of precedence is like above: per-instance data overrides everything; then Material data is used; and finally if shader property does not exist in these two places then global property value is used. Finally, if there’s no shader property value defined anywhere, then “default” (zero for floats, black for colors, empty white texture for textures) value will be provided.</p>
+<p id="M">The order of precedence is like above: per-instance(每个实例) data overrides everything; then Material data is used; and finally if shader property does not exist in these two places then global property value is used. Finally, if there’s no shader property value defined anywhere, then “default” (zero for floats, black for colors, empty white texture for textures) value will be provided.</p>
 
 <h2>Serialized and Runtime Material properties</h2>
 
 <p>
 <a href="class-Material.html">Materials</a> can contain both serialized and runtime-set property values.</p>
 
-<p>Serialized data is all the properties defined in shader’s <a href="SL-Properties.html">Properties</a> block. Typically these are values that need to be stored in the material, and are tweakable by the user in Material Inspector.</p>
+<p id="M">Serialized data is all the properties defined in shader’s <a href="SL-Properties.html">Properties</a> block. Typically these are values that need to be stored in the material, and are tweakable by the user in Material Inspector.</p>
 
-<p>A material can also have some properties that are used by the shader, but not declared in shader’s <a href="SL-Properties.html">Properties</a> block. Typically this is for properties that are set from script code at runtime, e.g. via <a href="../ScriptReference/Material.SetColor.html">Material.SetColor</a>. Note that matrices and arrays can only exist as non-serialized runtime properties (since there’s no way to define them in Properties block).</p>
+<p id="M">A material can also have some properties that are used by the shader, but not declared in shader’s <a href="SL-Properties.html">Properties</a> block. Typically this is for properties that are set from script code at runtime, e.g. via <a href="../ScriptReference/Material.SetColor.html">Material.SetColor</a>. Note that matrices and arrays can only exist as non-serialized runtime properties (since there’s no way to define them in Properties block).</p>
 
 <h2>Special Texture properties</h2>
 
@@ -153,35 +153,35 @@ samplerCUBE _MyCubemap;
 
 <h4>Texture tiling &amp; offset</h4>
 
-<p>
+<p id="M">
 <a href="class-Material.html">Materials</a> often have Tiling and Offset fields for their texture properties. This information is passed into shaders in a float4 <em>{TextureName}</em><code>_ST</code> property:</p>
 
 <ul>
-<li>
+<li id="M">
 <code>x</code> contains X tiling value</li>
-<li>
+<li id="M">
 <code>y</code> contains Y tiling value</li>
-<li>
+<li id="M">
 <code>z</code> contains X offset value</li>
-<li>
+<li id="M">
 <code>w</code> contains Y offset value</li>
 </ul>
 
-<p>For example, if a shader contains texture named <code>_MainTex</code>, the tiling information will be in a <code>_MainTex_ST</code> vector.</p>
+<p id="M">For example, if a shader contains texture named <code>_MainTex</code>, the tiling information will be in a <code>_MainTex_ST</code> vector.</p>
 
 <h4>Texture size</h4>
 
-<p>
+<p id="M">
 <em>{TextureName}</em><code>_TexelSize</code> - a float4 property contains texture size information:</p>
 
 <ul>
-<li>
+<li id="M">
 <code>x</code> contains 1.0/width</li>
-<li>
+<li id="M">
 <code>y</code> contains 1.0/height</li>
-<li>
+<li id="M">
 <code>z</code> contains width</li>
-<li>
+<li id="M">
 <code>w</code> contains height</li>
 </ul>
 
