@@ -109,15 +109,15 @@
 
 <p>The Profiler controls are in the toolbar at the top of the window. Use these to turn profiling on and off, and navigate through profiled frames. The transport controls are at the far right end of the toolbar. Note that when the game is running and the profiler is collecting data, clicking on any of these transport controls pauses the game. The controls go to the first recorded frame, step one frame back, step one frame forward and go to the last frame respectively. </p>
 
-<p>The Profiler does not keep all recorded frames, so the notion of the <em>first</em> frame should really be though of as the oldest frame that is still kept in memory. The “current” transport button causes the profile statistics window to display data collected in real-time. The Active Profiler popup menu allows you to select whether profiling should be done in the editor or a separate player (for example, a game running on an attached iOS device). Save button lets you write the recorded frames to a file. Correspondingly, Load button reads data saved earlier. You can also load a binary profile data written out by the player (when generating log, set <a href="../ScriptReference/Profiling.Profiler-enableBinaryLog.html">Profiler.enableBinaryLog</a> to enable binary format). If “Load” is clicked while the shift button is pressed, file contents is appended to the current profile frames in memory.</p>
+<p>The Profiler does not keep all recorded frames, so the notion of the <em>first</em> frame should really be though of as the oldest frame that is still kept in memory. <span id="M"> The “current” transport button causes the profile statistics window to display data collected in real-time </span>. The Active Profiler popup menu allows you to select whether profiling should be done in the editor or a separate player (for example, a game running on an attached iOS device). Save button lets you write the recorded frames to a file. Correspondingly, Load button reads data saved earlier. You can also load a binary profile data written out by the player (when generating log, set <a href="../ScriptReference/Profiling.Profiler-enableBinaryLog.html">Profiler.enableBinaryLog</a> to enable binary format). If “Load” is clicked while the shift button is pressed, file contents is appended to the current profile frames in memory.</p>
 
 <h3>Deep Profiling</h3>
 
-<p>When you turn on <strong>Deep Profile</strong>, <em>all</em> your script code is profiled - that is, all function calls are recorded. This is useful to know where exactly time is spent in your game code.</p>
+<p id="M">When you turn on <strong>Deep Profile</strong>, <em>all</em> your script code is profiled - that is, all function calls are recorded. This is useful to know where exactly time is spent in your game code.</p>
 
-<p>Note that Deep Profiling incurs a <strong>very large overhead</strong> and uses a lot of memory, and as a result your game will run significantly slower while profiling. If you are using complex script code, Deep Profiling might not be possible at all. Deep profiling should work fast enough for small games with simple scripting. If you find that Deep Profiling for your entire game causes the frame rate to drop so much that the game barely runs, you should consider not using this approach, and instead use the approach described below. You may find deep profiling more helpful as you are designing your game and deciding how to best implement key features. Note that for large games deep profiling may cause Unity to run out of memory and so for this reason deep profiling may not be possible.</p>
+<p> <span id="M"> Note that Deep Profiling incurs a <strong>very large overhead</strong> and uses a lot of memory, and as a result your game will run significantly slower while profiling.</span> If you are using complex script code, Deep Profiling might not be possible at all. Deep profiling should work fast enough for small games with simple scripting. If you find that Deep Profiling for your entire game causes the frame rate to drop so much that the game barely runs, you should consider not using this approach, and instead use the approach described below. You may find deep profiling more helpful as you are designing your game and deciding how to best implement key features. Note that for large games deep profiling may cause Unity to run out of memory and so for this reason deep profiling may not be possible.</p>
 
-<p>Manually profiling blocks of your script code will have a smaller overhead than using Deep Profiling. Use <a href="../ScriptReference/Profiling.Profiler.BeginSample.html">Profiler.BeginSample</a> and <a href="../ScriptReference/Profiling.Profiler.EndSample.html">Profiler.EndSample</a> scripting functions to enable and disable profiling around sections of code.</p>
+<p><span id="M"> Manually profiling blocks of your script code will have a smaller overhead than using Deep Profiling. Use <a href="../ScriptReference/Profiling.Profiler.BeginSample.html">Profiler.BeginSample</a> and <a href="../ScriptReference/Profiling.Profiler.EndSample.html">Profiler.EndSample</a> scripting functions to enable and disable profiling around sections of code.</span> </p>
 
 <h3>View SyncTime</h3>
 
@@ -151,16 +151,16 @@
 
 <h3>iOS</h3>
 
-<p>Enable remote profiling on iOS devices by following these steps:</p>
+<p id="M">Enable remote profiling on iOS devices by following these steps:</p>
 
-<ol>
+<ol id="M">
 <li>Connect your iOS device to your WiFi network. (The Profiler uses a local WiFi network to send profiling data from your device to the Unity Editor.)</li>
 <li>In the Unity Editor’s <strong>Build Settings</strong> dialog box (menu: <strong>File</strong> &gt; <strong>Build Settings…</strong>), check the <strong>Autoconnect Profiler</strong> checkbox.</li>
 <li>Attach your device to your Mac via cable. In the Unity Editor’s <strong>Build Settings</strong> dialog box (menu: <strong>File__&gt;__Build Settings…</strong>), check the <strong>Autoconnect Profiler</strong> checkboxcheck and select <strong>Build &amp; Run</strong>.</li>
 <li>When the app launches on the device, open the Profiler window in the Unity Editor (<strong>Window</strong> &gt; <strong>Profiler</strong>).</li>
 </ol>
 
-<p>If you are using a firewall, you need to make sure that ports 54998 to 55511 are open in the firewall’s outbound rules - these are the ports used by Unity for remote profiling.</p>
+<p id="M">If you are using a firewall, you need to make sure that ports 54998 to 55511 are open in the firewall’s outbound rules - these are the ports used by Unity for remote profiling.</p>
 
 <p>
 <strong>Note:</strong> Sometimes the Unity Editor might not autoconnect to the device. In such cases you can initiate the Profiler connection from Profiler window <strong>Active Profiler</strong> drop down menu by select appropriate device.</p>
@@ -193,7 +193,7 @@
 If you want to profile another application or you restart the adb server you have to setup this tunnel manually. To do this, open a Terminal window / CMD prompt and enter:</li>
 </ul>
 
-<pre><code>adb forward tcp:54999 localabstract:Unity-{insert bundle identifier here}
+<pre><code id="M">adb forward tcp:54999 localabstract:Unity-{insert bundle identifier here}
 </code></pre>
 
 <p>
