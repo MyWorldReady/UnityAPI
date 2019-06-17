@@ -118,9 +118,9 @@ The <strong>Edit -&gt; PlayerSettings</strong> <strong>First Streamed Level</str
 
 <h2>Resource Unloading</h2>
 
-<p>You can unload resources of an AssetBundle by calling <a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.Unload()</a>. If you pass <strong>true</strong> for the <strong>unloadAllLoadedObjects</strong> parameter, both the objects held internally by the AssetBundle and the ones loaded from the AssetBundle using <a href="../ScriptReference/AssetBundle.LoadAsset.html">AssetBundle.LoadAsset()</a> will be destroyed and memory used by the bundle will be released.</p>
+<p id="M">You can unload resources of an AssetBundle by calling <a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.Unload()</a>. If you pass <strong>true</strong> for the <strong>unloadAllLoadedObjects</strong> parameter, both the objects held internally by the AssetBundle and the ones loaded from the AssetBundle using <a href="../ScriptReference/AssetBundle.LoadAsset.html">AssetBundle.LoadAsset()</a> will be destroyed and memory used by the bundle will be released.</p>
 
-<p>Sometimes you may prefer to load an AssetBundle, instantiate the objects desired and release the memory used up by the bundle while keeping the objects around. The benefit is that you free up memory for other tasks, for instance loading another AssetBundle. In this scenario you would pass <strong>false</strong> as the parameter. After the bundle is destroyed you will not be able to load objects from it any more.</p>
+<p id="M">Sometimes you may prefer to load an AssetBundle, instantiate the objects desired and release the memory used up by the bundle while keeping the objects around. The benefit is that you free up memory for other tasks, for instance loading another AssetBundle. In this scenario you would pass <strong>false</strong> as the parameter. After the bundle is destroyed you will not be able to load objects from it any more.</p>
 
 <p>If you want to destroy scene objects loaded using <a href="../ScriptReference/Resources.Load.html">Resources.Load()</a> prior to loading another level, call <a href="../ScriptReference/Object.Destroy.html">Object.Destroy()</a> on them. To release assets, use <a href="../ScriptReference/Resources.UnloadUnusedAssets.html">Resources.UnloadUnusedAssets()</a>.</p>
 <div class="nextprev clear">

@@ -116,9 +116,9 @@
 <figcaption>Render.OpaqueGeometry is selected and its contribution is highlighted in the chart</figcaption>
 </figure>
 
-<p>In the hierarchical time data, the <strong>Self</strong> column refers to the amount of time spent in a particular function, not including the time spent calling sub-functions. In the screenshot above, 41.1% of time is spent in the <code>Camera.Render</code> function. This function does a lot of work, and calls the various drawing and culling functions. Excluding all of these functions, only 2.1% of time is spent in the <code>Camera.Render</code> function itself. </p>
+<p id="M">In the hierarchical time data, the <strong>Self</strong> column refers to the amount of time spent in a particular function, not including the time spent calling sub-functions. In the screenshot above, 41.1% of time is spent in the <code>Camera.Render</code> function. This function does a lot of work, and calls the various drawing and culling functions. Excluding all of these functions, only 2.1% of time is spent in the <code>Camera.Render</code> function itself. </p>
 
-<p>The <strong>Time ms</strong> and <strong>Self ms</strong> columns show the same information but in milliseconds. <code>Camera.Render</code> takes 0.01ms but, including all the functions it calls, 0.21ms are consumed. The <strong>GC Alloc</strong> column shows how much memory has been allocated in the current frame, which is later collected by the garbage collector. Keep this value at zero to prevent the garbage collector from causing hiccups in your framerate.</p>
+<p id="M">The <strong>Time ms</strong> and <strong>Self ms</strong> columns show the same information but in milliseconds. <code>Camera.Render</code> takes 0.01ms but, including all the functions it calls, 0.21ms are consumed. The <strong>GC Alloc</strong> column shows how much memory has been allocated in the current frame, which is later collected by the garbage collector. Keep this value at zero to prevent the garbage collector from causing hiccups in your framerate.</p>
 
 <p>The <strong>Others</strong> section of the CPU profiler records the total of all areas that do not fall into Rendering, Scripts, Physics, Garbage Collection or VSync. This includes Animation, AI, Audio, Particles, Networking, Loading, and PlayerLoop.</p>
 
@@ -187,7 +187,7 @@
 <strong>Animation.Deactivate</strong> [Triggers RebuildInternalState]</li>
 </ul>
 
-<p>In the screenshot above, the Profiler is showing the <strong>Static Collider.Move</strong> warning. The <strong>Warning</strong> column shows that this warning has been triggered 12 times in the current frame. The term “delayed cost” means that, although the entry in the Profiler may show a low cost (in this case 0.00ms), the action may trigger more system-demanding operations later on.</p>
+<p id="M">In the screenshot above, the Profiler is showing the <strong>Static Collider.Move</strong> warning. The <strong>Warning</strong> column shows that this warning has been triggered 12 times in the current frame. The term “delayed cost” means that, although the entry in the Profiler may show a low cost (in this case 0.00ms), the action may trigger more system-demanding operations later on.</p>
 
 <h2>CPU Profiler Timeline</h2>
 
