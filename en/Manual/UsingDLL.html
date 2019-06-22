@@ -102,22 +102,40 @@
 
 <p>The path to the Unity DLLs will typically be</p>
 
-<pre><code>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/
+<pre><code id="M">/Applications/Unity/Unity.app/Contents/Frameworks/Managed/
 </code></pre>
 
 <p>…and the two DLLs are called UnityEngine.dll and UnityEditor.dll.</p>
 
 <p>On Windows, the DLLs can be found in the folders that accompany the Unity application. The path will typically be</p>
 
-<pre><code>C:\Program Files\Unity\Editor\Data\Managed
+<pre><code id="M">C:\Program Files\Unity\Editor\Data\Managed
 </code></pre>
 
 <p>…while the names of the DLLs are the same as for Mac OS.</p>
 
 <p>The exact options for compiling the DLL will vary depending on the compiler used. As an example, the command line for the Mono C# compiler, <strong>mcs</strong>, might look like this on Mac OS:-</p>
 
-<pre><code>mcs -r:/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll -target:library ClassesForDLL.cs 
+<pre><code id="M">mcs -r:/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll -target:library ClassesForDLL.cs 
 </code></pre>
+
+<h1>Windows为例</h1>
+<ul>
+  <li>先进入unity的安装目录，找到你引用的dll，地址类似于C:\Program Files\Unity\Editor\Data\Managed 
+如你引用了UnityEngine.dll，那么久复制对应的文件。 </li>
+  <li>将复制的文件拷贝到硬盘根目录，根目录的缘故是为了接下来方便操作，也可以在根目录下创建一个文件夹，将文件放入这个文件夹。这里示例为F盘根目录 。注意：不建议放在桌面 </li>
+  <li> 将你要打包dll的文件复制到同个地方（示例为F盘根目录）</li>
+  <li> 开cmd界面，进入执行文件的目录，路径大概如下 
+C:\Program Files (x86)\Unity4.6\Editor\Data\MonoBleedingEdge\lib\mono\2.0 
+根据自己的安装目录进行参考</li>
+  <li>执行命令，命令大概如下 <br>
+  <span id="M">mcs -r:F:\UnityEngine.dll -target:library F:\DebugCustom.cs</span> <br>
+其中mcs是命令是要执行的命令，F:\UnityEngine.dll是引用的dll，如果你引用了多个dll，可以加个空格后继续添加，-target:library是指将文件打包成dll，F:\DebugCustom.cs是你要打包成dll的文件，如果文件有多个，同样加空格然后在后面添加
+ </li>
+</ul>
+<p>
+  上面就是流程了，看完了后不知道有没有看出问什么会有上面那个注意了，第五条中空格很关键，而我们桌面的路径有的会有空格，win7的没有，好像是Xp有，所以只是不建议，而不是不能。大家根据自己的情况调整就行。
+</p>
 
 <p>Here, the <em>-r</em> option specifies a path to a library to be included in the build, in this case the UnityEngine library. The <em>-target</em> option specifies which type of build is required; the word “library” is used to select a DLL build. Finally, the name of the source file to compile is <em>ClassesForDLL.cs</em> (it is assumed that this file is in the current working folder, but you could specify the file using a full path if necessary). Assuming all goes well, the resulting DLL file will appear shortly in the same folder as the source file.</p>
 

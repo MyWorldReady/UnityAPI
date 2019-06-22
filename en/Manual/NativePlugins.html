@@ -117,13 +117,13 @@
        // On iOS plugins are statically linked into
        // the executable, so we have to use __Internal as the
        // library name.
-       [DllImport (&quot;__Internal&quot;)]
+       <span id="M">[DllImport (&quot;__Internal&quot;)]</span>
 
        #else
 
        // Other platforms load plugins dynamically, so pass the name
        // of the plugin's dynamic library.
-       [DllImport (&quot;PluginName&quot;)]
+       <span id="M">[DllImport (&quot;PluginName&quot;)]</span>
     
        #endif
 
@@ -132,7 +132,7 @@
        void Awake () {
           // Calls the FooPluginFunction inside the plugin
           // And prints 5 to the console
-          print (FooPluginFunction ());
+         <span id="M"> print (FooPluginFunction ());</span>
        }
     }
 </code></pre>
