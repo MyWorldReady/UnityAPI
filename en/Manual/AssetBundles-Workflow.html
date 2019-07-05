@@ -101,13 +101,13 @@
 <ol>
 <li>Select the asset you want to assign to a bundle from your Project View</li>
 <li>Examine the object in the inspector</li>
-<li>At the bottom of the inspector, you should see a section to assign AssetBundles and Variants:</li>
+<li>At the bottom of the inspector, you should see a section to assign AssetBundles and Variants(变体):</li>
 <li>The left-hand drop down assigns the AssetBundle while the right-hand drop down assigns the variant</li>
 <li>Click the left-hand drop down where it says “None” to reveal the currently registered AssetBundle names</li>
 <li>If none have yet been created, you’ll see a list like that in the image above</li>
 <li>Click “New…” to create a new AssetBundle</li>
-<li>Type in the desired AssetBundle name. Note that AssetBundle names do support a type of folder structure depending on what you type. To add sub folders, separate folder names by a “/”. For example: AssetBundle name “environment/forest” will create a bundle named forest under an environment sub folder</li>
-<li>Once you’ve selected or created an AssetBundle name, you can repeat this process for the right hand drop down to assign or create a Variant name, if you desire. Variant names are not required to build the AssetBundles</li>
+<li id="M">Type in the desired AssetBundle name. Note that AssetBundle names do support a type of folder structure depending on what you type. To add sub folders, separate folder names by a “/”. For example: AssetBundle name “environment/forest” will create a bundle named forest under an environment sub folder</li>
+<li id="M">Once you’ve selected or created an AssetBundle name, you can repeat this process for the right hand drop down to assign or create a Variant name, if you desire. Variant names are not required to build the AssetBundles</li>
 </ol>
 
 <p>To read more information on AssetBundle assignments and accompanying strategies, see documentation on <a href="#AssetBundles-Preparing">Preparing Assets for AssetBundles</a>
@@ -138,7 +138,7 @@ BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.No
 
 <p>For more detail about what this code is doing, see documentation on <a href="#AssetBundles-Building">Building AssetBundles</a>.</p>
 
-<h2>Upload AssetBundles to off-site storage</h2>
+<h2>Upload AssetBundles to off-site storage远程仓库</h2>
 
 <p>This step is unique to each user and not a step Unity can tell you how to do. If you plan on uploading your AssetBundles to a third party hosting site, do that here. If you’re doing strictly local development and intend to have all of your AssetBundles on disk, skip to the next step.</p>
 
@@ -180,7 +180,7 @@ BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.No
 <p>
 <code>GetAssetBundle(string, int)</code> takes the uri of the location of the AssetBundle and the version of the bundle you want to download. In this example we’re still pointing to a local file but the string uri could point to any url you have your AssetBundles hosted at.</p>
 
-<p>The UnityWebRequest has a specific handle for dealing with AssetBundles, <code>DownloadHandlerAssetBundle</code>, which gets the AssetBundle from the request.</p>
+<p id="M">The UnityWebRequest has a specific handle for dealing with AssetBundles, <code>DownloadHandlerAssetBundle</code>, which gets the AssetBundle from the request.</p>
 
 <p>Regardless of the method you use, you’ll now have access to the AssetBundle object. From that object you’ll need to use <code>LoadAsset&lt;T&gt;(string)</code> which takes the type, <code>T</code>, of the asset you’re attempting to load and the name of the object as a string that’s inside the bundle. This will return whatever object you’re loading from the AssetBundle. You can use these returned objects just like any object inside of Unity. For example, if you want to create a GameObject in the scene, you just need to call <code>Instantiate(gameObjectFromAssetBundle)</code>. </p>
 
