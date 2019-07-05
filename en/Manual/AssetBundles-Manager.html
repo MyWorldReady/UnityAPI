@@ -92,13 +92,18 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The AssetBundle Manager, which can be downloaded <a href="https://www.assetstore.unity3d.com/en/#!/content/45836">here</a>, is a tool made by Unity to make using AssetBundles more streamlined.</p>
+<p>The AssetBundle Manager, which can be downloaded <a href="https://www.assetstore.unity3d.com/en/#!/content/45836">here</a>
+
+<br>
+<a href="https://bitbucket.org/Unity-Technologies/assetbundledemo/src/default/"> 点击下载</a>
+
+, is a tool made by Unity to make using AssetBundles more streamlined.</p>
 
 <p>Downloading and importing the AssetBundle Manager package not only adds a new API calls for loading and using AssetBundles but it adds some Editor functionality to streamline the workflow as well. This functionality can be found under the Assets menu option. </p>
 
 <p>This new section will contain the following options:</p>
 
-<h2>Simulation Mode</h2>
+<h2>Simulation Mode(模拟模式)</h2>
 
 <p>Enabling Simulation Mode allows the AssetBundle Manager to work with AssetBundles but does not require the bundles themselves actually be built. The editor looks to see what Assets have been assigned to AssetBundles and uses the Assets directly, instead of actually pulling them from an AssetBundle.</p>
 
@@ -110,7 +115,7 @@
 
 <p>The AssetBundle Manager can also start a Local AssetBundle Server which can be used to test AssetBundles in the editor or in local builds (including Mobile).</p>
 
-<p>The stipulation to getting the Local AssetBundle Server to work is that you must create a folder called AssetBundles in the root directory of your project which is the same level as the Assets folder. Such as:</p>
+<p>The stipulation(前提) to getting the Local AssetBundle Server to work is that you must create a folder called AssetBundles in the root directory of your project which is the same level as the Assets folder. Such as:</p>
 
 <figure>
 <img src="../uploads/Main/AssetBundles-Manager-4.png" alt="">
@@ -177,7 +182,7 @@ if (request != null)
 
 <p>As you can see, loading scenes is also an asynchronous and LoadLevelAsync returns a load operation request which will need to be passed to a StartCoroutine in order to load the scene.</p>
 
-<h2>Load Variants</h2>
+<h2>Load Variants(加载版本变体)</h2>
 
 <p>Loading variants using the AssetBundle Manager doesn’t actually change the code need to load in the scenes or assets. All that needs to be done is set the ActiveVariants property of the AssetBundleManager.</p>
 
@@ -196,7 +201,7 @@ if (request != null)
 }
 </code></pre>
 
-<p>Where you’d pass in the string array you built up elsewhere in your code (perhaps from a button click or some other circumstances). This will load the bundles that match the set active variants if it is available. </p>
+<p>Where you’d pass in the string array you built up elsewhere in your code (perhaps from a button click or some other circumstances情况. This will load the bundles that match the set active variants if it is available. </p>
 
 <hr>
 
