@@ -103,16 +103,24 @@
 
 <p>While you’re free to combine <code>BuildAssetBundleOptions</code> as needs change and arise, there are three specific <code>BuildAssetBundleOptions</code> that deal with AssetBundle Compression:</p>
 
-<ul>
+<ul id="M">
 <li><p>
-<code>BuildAssetBundleOptions.None</code>: This bundle option uses LZMA Format compression, which is a single compressed LZMA stream of serialized data files. LZMA compression requires that the entire bundle is decompressed before it’s used. This results in the smallest possible file size but a slightly longer load time due to the decompression. It is worth noting that when using this BuildAssetBundleOptions, in order to use any assets from the bundle the entire bundle must be uncompressed initially. <br> Once the bundle has been decompressed, it will be recompressed on disk using LZ4 compression which doesn’t require the entire bundle be decompressed before using assets from the bundle. This is best used when a bundle contains assets such that to use one asset from the bundle would mean all assets are going to be loaded. Packaging all assets for a character or scene are some examples of bundles that might use this. <br> Using LZMA compression is only recommended for the initial download of an AssetBundle from an off-site host due to the smaller file size. Once the file has been downloaded, it will be cached as a LZ4 compressed bundle.</p></li>
+<code>BuildAssetBundleOptions.None</code>: This bundle option uses LZMA Format compression, which is a single compressed LZMA stream of serialized data files把序列化数据文件压缩为一个 LZMA 流. LZMA compression requires that the entire bundle is decompressed before it’s used. This results in the smallest possible file size but a slightly longer load time due to the decompression. It is worth noting that when using this BuildAssetBundleOptions, in order to use any assets from the bundle the entire bundle must be uncompressed initially. <br> Once the bundle has been decompressed, it will be recompressed on disk using LZ4 compression which doesn’t require the entire bundle be decompressed before using assets from the bundle. This is best used when a bundle contains assets such that to use one asset from the bundle would mean all assets are going to be loaded. Packaging all assets for a character or scene are some examples of bundles that might use this. <br> Using LZMA compression is only recommended for the initial download of an AssetBundle from an off-site host due to the smaller file size. Once the file has been downloaded, it will be cached as a LZ4 compressed bundle.</p>
+<p>
+  题外话：LZ4 压缩算法是 Unity 5.3 版本新增的压缩格式。LZMA 算法的压缩比更大，相应的解压时间更长；LZ4 算法的压缩比稍小，但是解压时间大幅缩短。因此除了上段推荐的“从远程服务器下载小文件用于初始化”，其他场景建议使用 LZ4 算法压缩 AssetBundle。使用 LZ4 算法压缩的选项在下面有介绍。）
+</p>
+
+</li>
 <li><p>
 <code>BuildAssetBundleOptions.UncompressedAssetBundle</code>: This bundle option builds the bundles in such a way that the data is completely uncompressed. The downside to being uncompressed is the larger file download size. However, the load times once downloaded will be much faster.</p></li>
 <li><p>
-<code>BuildAssetBundleOptions.ChunkBasedCompression</code>: This bundle option uses a compression method known as LZ4, which results in larger compressed file sizes than LZMA but does not require that entire bundle is decompressed, unlike LZMA, before it can be used. LZ4 uses a chunk based algorithm which allows the AssetBundle be loaded in pieces or “chunks.” Decompressing a single chunk allows the contained assets to be used even if the other chunks of the AssetBundle are not decompressed.</p></li>
+<code>BuildAssetBundleOptions.ChunkBasedCompression</code>: This bundle option uses a compression method known as LZ4, which results in larger compressed file sizes than LZMA but does not require that entire bundle is decompressed, unlike LZMA, before it can be used. LZ4 uses a chunk块 based algorithm算法 which allows the AssetBundle be loaded in pieces or “chunks.” Decompressing a single chunk allows the contained assets to be used even if the other chunks of the AssetBundle are not decompressed.</p></li>
 </ul>
 
 <p>Using <code>ChunkBasedCompression</code> has comparable loading times to uncompressed bundles with the added benefit of reduced size on disk.</p>
+<p id="M">
+  <strong>官方推荐用ChunkBasedCompression</strong>
+</p>
 
 <h4>BuildTarget</h4>
 
