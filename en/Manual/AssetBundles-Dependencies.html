@@ -92,13 +92,13 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>AssetBundles can become dependant on other AssetBundles if one or more of the <code>UnityEngine.Objects</code> contains a reference to a <code>UnityEngine.Object</code> located in another bundle. A dependency does not occur if the UnityEngine.Object contains a reference to a <code>UnityEngine.Object</code> that is not contained in any AssetBundle. In this case, a copy of the object that the bundle would be dependant on is copied into the bundle when you build the AssetBundles. If multiple objects in multiple bundles contain a reference to the same object that isn’t assigned to a bundle, every bundle that would have a dependency on that object will make its own copy of the object and package it into the built AssetBundle.</p>
+<p id="M">AssetBundles can become dependant on other AssetBundles if one or more of the <code>UnityEngine.Objects</code> contains a reference to a <code>UnityEngine.Object</code> located in another bundle. A dependency does not occur if the UnityEngine.Object contains a reference to a <code>UnityEngine.Object</code> that is not contained in any AssetBundle. In this case, a copy of the object that the bundle would be dependant on is copied into the bundle when you build the AssetBundles. If multiple objects in multiple bundles contain a reference to the same object that isn’t assigned to a bundle, every bundle that would have a dependency on that object will make its own copy of the object and package it into the built AssetBundle.</p>
 
-<p>Should an AssetBundle contain a dependency, it is important that the bundles that contain those dependencies are loaded before the object you’re attempting to instantiate is loaded. Unity will not attempt to automatically load dependencies.</p>
+<p id="M">Should an AssetBundle contain a dependency, it is important that the bundles that contain those dependencies are loaded before the object you’re attempting to instantiate is loaded. Unity will not attempt to automatically load dependencies.</p>
 
-<p>Consider the following example, a Material in <strong>Bundle 1</strong> references a Texture in <strong>Bundle 2</strong>:</p>
+<p id="M">Consider the following example, a Material in <strong>Bundle 1</strong> references a Texture in <strong>Bundle 2</strong>:</p>
 
-<p>In this example, before loading the Material from <strong>Bundle 1</strong>, you would need to load <strong>Bundle 2</strong> into memory. It does not matter which order you load <strong>Bundle 1</strong> and <strong>Bundle 2</strong>, the important takeaway is that <strong>Bundle 2</strong> is loaded before loading the Material from <strong>Bundle 1</strong>. In the next section, we’ll discuss how you can use the <code>AssetBundleManifest</code> objects we touched on in the previous section to determine, and load, dependencies at runtime.</p>
+<p id="M">In this example, before loading the Material from <strong>Bundle 1</strong>, you would need to load <strong>Bundle 2</strong> into memory. It does not matter which order you load <strong>Bundle 1</strong> and <strong>Bundle 2</strong>, the important takeaway is that <strong>Bundle 2</strong> is loaded before loading the Material from <strong>Bundle 1</strong>. In the next section, we’ll discuss how you can use the <code>AssetBundleManifest</code> objects we touched on in the previous section to determine, and load, dependencies at runtime.</p>
 
 <hr>
 
