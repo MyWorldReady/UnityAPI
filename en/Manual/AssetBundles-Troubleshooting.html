@@ -88,7 +88,8 @@
 <div class="otherversionswrapper" onmouseover="setOtherVersionsDisplay(true)" onmouseout="setOtherVersionsDisplay(false)">
 <a>Other Versions</a><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">Cannot access other versions offline!</div>
 </div>
-<h1>Troubleshooting</h1>
+<h1>Troubleshooting
+故障排除</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -96,13 +97,13 @@
 
 <h2>Asset Duplication</h2>
 
-<p>Unity 5’s AssetBundle system will discover all dependencies of an Object when the Object is built into an AssetBundle. This is done using the Asset Database. This dependency information is used to determine the set of Objects that will be included in an AssetBundle.</p>
+<p>Unity 5’s AssetBundle system will discover查找 all dependencies of an Object when the Object is built into an AssetBundle. This is done using the Asset Database. This dependency information is used to determine the set of Objects that will be included in an AssetBundle.</p>
 
 <p>Objects that are explicitly assigned to an AssetBundle will only be built into that AssetBundle. An Object is “explicitly assigned” when that Object’s AssetImporter has its assetBundleName property set to a non-empty string.</p>
 
 <p>Any Object that is not explicitly assigned in an AssetBundle will be included in all AssetBundles that contain 1 or more Objects that reference the untagged Object.</p>
 
-<p>If two different Objects are assigned to two different AssetBundles, but both have references to a common dependency Object, then that dependency Object will be copied into both AssetBundles. The duplicated dependency will also be instanced, meaning that the two copies of the dependency Object will be considered different Objects with a different identifiers. This will increase the total size of the application’s AssetBundles. This will also cause two different copies of the Object to be loaded into memory if the application loads both of its parents.</p>
+<p id="M">If two different Objects are assigned to two different AssetBundles, but both have references to a common dependency Object, then that dependency Object will be copied into both AssetBundles. The duplicated dependency will also be instanced, meaning that the two copies of the dependency Object will be considered different Objects with a different identifiers. This will increase the total size of the application’s AssetBundles. This will also cause two different copies of the Object to be loaded into memory if the application loads both of its parents.</p>
 
 <p>There are several ways to address this problem:</p>
 
@@ -111,17 +112,17 @@
 <p>Ensure that Objects built into different AssetBundles do not share dependencies. Any Objects which do share dependencies can be placed into the same AssetBundle without duplicating their dependencies.</p>
 
 <ul>
-<li>This method usually is not viable for projects with many shared dependencies. It can produce monolithic AssetBundles that must be rebuilt and re-downloaded too frequently to be convenient or efficient.</li>
+<li>This method usually is not viable适用 for projects with many shared dependencies. It can produce monolithic AssetBundles作为整体的 AssetBundles that must be rebuilt and re-downloaded too frequently to be convenient or efficient.</li>
 </ul>
 </li>
 <li>
-<p>Segment AssetBundles so that no two AssetBundles that share a dependency will be loaded at the same time.</p>
+<p id="M">Segment AssetBundles so that no two AssetBundles that share a dependency will be loaded at the same time.</p>
 
 <ul>
-<li>This method may work for certain types of projects, such as level-based games. However, it still unnecessarily increases the size of the project’s AssetBundles, and increases both build times and loading times.</li>
+<li id="M">This method may work for certain types特定类型 of projects, such as level-based以关卡为基础 games. However, it still unnecessarily increases the size of the project’s AssetBundles, and increases both build times and loading times.</li>
 </ul>
 </li>
-<li><p>Ensure that all dependency assets are built into their own AssetBundles. This entirely eliminates the risk of duplicated assets, but also introduces complexity. The application must track dependencies between AssetBundles, and ensure that the right AssetBundles are loaded before calling any AssetBundle.LoadAsset APIs.</p></li>
+<li><p>Ensure that all dependency assets are built into their own AssetBundles. This entirely完全 eliminates排除 the risk of duplicated assets, but also introduces complexity. The application must track追踪 dependencies between AssetBundles, and ensure that the right AssetBundles are loaded before calling any AssetBundle.LoadAsset APIs.</p></li>
 </ol>
 
 <p>In Unity 5, Object dependencies are tracked via the AssetDatabase API, located in the UnityEditor namespace. As the namespace implies, this API is only available in the Unity Editor and not at runtime. AssetDatabase.GetDependencies can be used to locate all of the immediate dependencies of a specific Object or Asset. Note that these dependencies may have their own dependencies. Additionally, the AssetImporter API can be used to query the AssetBundle to which any specific Object is assigned.</p>
@@ -130,7 +131,7 @@
 
 <h2>Sprite Atlas Duplication</h2>
 
-<p>The following sections describe a quirk of Unity 5’s asset dependency calculation code when used in conjunction with automatically-generated sprite atlases.</p>
+<p>The following sections describe a quirk奇异的问题 of Unity 5’s asset dependency calculation code when used in conjunction with automatically-generated sprite atlases.</p>
 
 <p>Any automatically-generated sprite atlas will be assigned to the AssetBundle containing the Sprite Objects from which the sprite atlas was generated. If the sprite Objects are assigned to multiple AssetBundles, then the sprite atlas will not be assigned to an AssetBundle and will be duplicated. If the Sprite Objects are not assigned to an AssetBundle, then the sprite atlas will also not be assigned to an AssetBundle.</p>
 
@@ -158,7 +159,7 @@
 
 <h2>Android Textures</h2>
 
-<p>Due to heavy device fragmentation in the Android ecosystem, it is often necessary to compress textures into several different formats. While all Android devices support ETC1, ETC1 does not support textures with alpha channels. Should an application not require OpenGL ES 2 support, the cleanest way to solve the problem is to use ETC2, which is supported by all Android OpenGL ES 3 devices.</p>
+<p>Due to heavy device fragmentation in the Android ecosystem, it is often necessary to compress textures into several different formats. <span id="M">While all Android devices support ETC1, ETC1 does not support textures with alpha channels</span> . Should an application not require OpenGL ES 2 support, the cleanest way to solve the problem is to use ETC2, which is supported by all Android OpenGL ES 3 devices.</p>
 
 <p>Most applications need to ship on older devices where ETC2 support is unavailable. One way to solve this problem is with Unity 5’s AssetBundle Variants. (Please see Unity’s Android optimization guide for details on other options.)</p>
 
