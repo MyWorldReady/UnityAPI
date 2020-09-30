@@ -1,0 +1,9 @@
+git@github.com:MyWorldReady/JDK
+git@github.com:MyWorldReady/UnityAPI
+https://github.com/Unity-Technologies/UnityCsReference.git
+git@github.com:MyWorldReady/UnityDecompiled.git
+git@github.com:MyWorldReady/softwareMac.git
+https://github.com/topameng/tolua.git
+git@github.com:MyWorldReady/uGUI.git
+git@github.com:MyWorldReady/UnityPackage.git
+git@github.com:MyWorldReady/MIOSWeb.git
