@@ -7,3 +7,5 @@ https://github.com/topameng/tolua.git
 git@github.com:MyWorldReady/uGUI.git
 git@github.com:MyWorldReady/UnityPackage.git
 git@github.com:MyWorldReady/MIOSWeb.git
+git@github.com:MyWorldReady/Unity-Logs-Viewer.git
+git@github.com:MyWorldReady/gradleZip.git
