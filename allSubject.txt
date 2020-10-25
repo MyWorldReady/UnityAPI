@@ -10,3 +10,4 @@ git@github.com:MyWorldReady/MIOSWeb.git
 git@github.com:MyWorldReady/Unity-Logs-Viewer.git
 git@github.com:MyWorldReady/gradleZip.git
 git@github.com:MyWorldReady/mac_WPS_2_7_1.git
+git@github.com:MyWorldReady/QmOnlyScriptNew.git
