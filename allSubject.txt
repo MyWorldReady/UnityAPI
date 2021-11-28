@@ -14,3 +14,7 @@ git@github.com:MyWorldReady/QmOnlyScriptNew.git
 
 git@github.com:MyWorldReady/PDF1.git
 git@github.com:MyWorldReady/OpenGLSuperBible5th_SrcCode
+
+git@github.com:MyWorldReady/PythonTools.git
+
+git@gitee.com:wuwenle/pdf101.git
